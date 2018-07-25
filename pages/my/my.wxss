@@ -1,0 +1,133 @@
+/* pages/my.wxss */
+.container{
+  padding: 20rpx 20rpx 0;
+  background: #eee;
+}
+/* user-card */
+.user-card{
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.user-heard{
+  display: flex;
+  flex-direction: row;
+}
+.user-icon{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  overflow: hidden
+}
+.user-info{
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+}
+.vip-box{
+  width: 150rpx;
+  display: flex;
+  background: #EEB422;
+  color: #fff;
+  padding: 5rpx 10rpx;
+  margin-top: 10rpx;
+  font-size: 23rpx;
+  border-radius: 25rpx;
+}
+.vip-icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.user-footer{
+  display: flex;
+  margin-top: 20rpx;
+}
+.user-footer>.item{
+  flex-grow: 1;
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+.user-footer>.item>.num{
+  display: block;
+}
+.user-footer>.item>.title{
+  font-size: 22rpx;
+  color: #8e8e8e;
+}
+.user-footer>.gift{
+  border: none;
+}
+.pay{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 30rpx;
+  right: 0;
+  width: 140rpx;
+  height: 80rpx;
+  color: #CDAD00;
+  font-size: 23rpx;
+  background: linear-gradient(to bottom right, #666 ,#aaa);
+}
+.pay-icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+/* order-card */
+.order-card{
+  margin-bottom: 20rpx;
+}
+.order-flow{
+  display: flex;
+  padding: 40rpx 0 20rpx;
+  border-bottom: 1rpx solid #eee;
+  margin-bottom: 20rpx;
+}
+.flow-item{
+  flex-grow: 1;
+  text-align: center;
+}
+.flow-item>image{
+  width: 50rpx;
+  height: 50rpx;
+}
+.flow-item>text{
+  display: block;
+  font-size: 23rpx;
+  color: #2c2c2c;
+}
+/* set-card */
+.set-item{
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.set-item:first-child{
+  padding-top: 0rpx;
+}
+.set-item:last-child{
+  padding-bottom: 0rpx;
+  border-bottom: none;
+}
+/* 推荐 */
+.recommend{
+}
+.r-heard{
+  display: flex;
+  justify-content: center;
+  margin: 20rpx auto;
+}
+.r-heard>.title{
+  font-size: 30rpx;
+  margin: 0 15rpx;
+}
+.r-heard>.sub{
+  display: inline-block;
+  width: 100rpx;
+  border-bottom: 1rpx solid #ababab;
+  align-self: center;
+}
+.recommend>.content{
+  margin: 0 -20rpx;
+  background: #fff;
+}

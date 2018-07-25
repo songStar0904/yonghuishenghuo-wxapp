@@ -1,0 +1,78 @@
+<!--pages/my.wxml-->
+<import src="../../components/title-icon-navigate/title-icon-navigate.wxml" />
+<import src="../../components/goods-item/goods-item.wxml" />
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="card user-card">
+    <view class="user-heard">
+      <view class="user-icon">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="user-info">
+        <open-data type="userNickName"></open-data>
+        <view class="vip-box">
+          <image src="../../images/vip.png" class="vip-icon"></image>
+          <text class="rank">会员</text>
+        </view>
+      </view>
+    </view>
+    <view class="user-footer">
+      <view class="coupon item">
+        <text class="num">0</text>
+        <text class="title">优惠券</text>
+      </view>
+      <view class="integral item">
+        <text class="num">0</text>
+        <text class="title">积分</text>
+      </view>
+      <view class="balance item">
+        <text class="num">￥0</text>
+        <text class="title">账户余额</text>
+      </view>
+      <view class="gift item">
+        <text class="num">0</text>
+        <text class="title">礼品卡</text>
+      </view>
+    </view>
+    <view class="pay">
+      <image src="../../images/pay.png" class="pay-icon"></image>
+      <text>付款码</text>
+    </view>
+  </view>
+  <!-- 配送订单 -->
+  <view class="card order-card">
+    <template is="title-icon-navigate" data="{{title: '配送订单', icon: '../../images/order.png', url: ''}}" />
+    <view class="order-flow">
+      <view class="flow-item">
+        <image src="../../images/no_pay.png"></image>
+        <text>待支付</text>
+      </view>
+      <view class="flow-item">
+        <image src="../../images/paid.png"></image>
+        <text>待配送</text>
+      </view>
+      <view class="flow-item">
+        <image src="../../images/refund.png"></image>
+        <text>退款中</text>
+      </view>
+    </view>
+    <template is="title-icon-navigate" data="{{title: '扫码购订单', icon: '../../images/scan.png', url: ''}}" />
+  </view>
+  <!-- 管理设置 -->
+  <view class="card set-card">
+    <view class="set-item" wx:for="{{setData}}" wx:key="index">
+      <template is="title-icon-navigate" data="{{title: item.title, icon: item.icon, url: item.url, note: item.note, no_arrow: item.no_arrow}}" />
+    </view>
+  </view>
+  <!-- 推荐 -->
+  <view class="recommend">
+    <view class="r-heard">
+      <text class="sub"></text>
+      <text class="title">永辉生活，为你推荐</text>
+      <text class="sub"></text>
+    </view>
+    <view class="content">
+      <template is="goods-item" wx:for="{{goodsData}}" wx:key="index" data="{{good: item}}" class="goods-item"/>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+/* components/title-icon-navigate/title-icon-navigate.wxss */
+.tin-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tin-left{
+  display: flex;
+  align-items: center;
+}
+.tin-left>.icon{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+.tin-left>.title{
+  font-size: 30rpx;
+}
+.tin-right>.arrow{
+  width: 20rpx;
+  height: 20rpx;
+}
+.tin-right>.note{
+  font-size: 23rpx;
+  font-weight: 300;
+  color: #707070;
+  margin-right: 10rpx;
+}

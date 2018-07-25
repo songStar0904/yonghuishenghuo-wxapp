@@ -1,0 +1,14 @@
+<!--components/title-icon-navigate/title-icon-navigate.wxml-->
+<template name="title-icon-navigate">
+  <view class="tin-box">
+    <view class="tin-left">
+      <image src="{{icon}}" class="icon"></image>
+      <text class="title">{{title}}</text>
+    </view>
+    <view class="tin-right">
+      <text wx:if="{{note}}" class="note">{{note}}</text>
+      
+      <image src="../../images/arrow_r.png" class="arrow" wx:if="{{!no_arrow}}"></image>
+    </view>
+  </view>
+</template>

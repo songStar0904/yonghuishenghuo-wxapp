@@ -1,0 +1,40 @@
+/* components/goods-item/goods-item.wxss */
+.item-box{
+  display: flex;
+  padding: 40rpx 20rpx;
+  margin: 0 20rpx;
+  position: relative;
+  border-bottom: 1rpx solid #eee;
+}
+.item-box .goods-icon{
+  width: 200rpx;
+  height: 200rpx;
+}
+.item-box .goods-info{
+  margin-left: 40rpx;
+  font-size: 28rpx;
+  font-weight: 300;
+}
+.item-box .goods-no-tab{
+  height: 125rpx;
+}
+.item-box .goods-tab{
+  width: 100rpx;
+  padding: 5rpx;
+  margin: 80rpx 0 5rpx;
+  font-size: 20rpx;
+  color: #63B8FF;
+  border: 3rpx solid #63B8FF;
+  border-radius: 5rpx;
+}
+.item-box .goods-price{
+  display: block;
+  color: #EE7942;
+}
+.add-icon{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  bottom: 40rpx;
+}
