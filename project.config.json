@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wxb589766672b25ddc",
+	"appid": "wx8dcca98a022387d8",
 	"projectname": "yonghui-demo",
 	"isGameTourist": false,
 	"condition": {
@@ -33,12 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "会员中心",
-					"pathName": "pages/my/my"
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "配送商城",
+					"pathName": "pages/mall/mall"
 				}
 			]
 		}

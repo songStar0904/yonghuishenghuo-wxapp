@@ -1,1 +1,83 @@
 /* pages/mall/mall.wxss */
+
+.mall-heard {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background: #3b3b3b;
+  border-top: 1rpx solid #616161;
+  color: #fff;
+  font-size: 26rpx;
+}
+.mall-heard .heard-left{
+  display: flex;
+  align-items: center;
+}
+.mall-heard image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.mall-heard .heard-right{
+  position: relative;
+}
+.mall-heard input{
+  background: #fff;
+  padding-left: 60rpx;
+  border-radius: 26rpx;
+}
+.mall-heard .search-icon{
+  position: absolute;
+  top: 12rpx;
+  left: 20rpx;
+}
+.seller{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 10rpx 20rpx;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.seller>.seller-icon{
+  margin-left: 33.33%;
+}
+.seller .seller-icon image{
+  width: 160rpx;
+  height: 50rpx;
+}
+.seller .arrow{
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(90deg);
+}
+.seller .seller-list{
+  position: absolute;
+  z-index: 1001;
+  top: 60rpx;
+  width: 100%;
+}
+.seller .seller-list .seller-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin: 20rpx 20rpx 20rpx 0;
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.seller .seller-list .seller-item:last-child{
+  border: none;
+}
+.seller-item .seller-icon{
+  margin-right: 40rpx;
+}
+.seller-item .seller-text{
+  color: #616161;
+  font-size: 23rpx;
+}
+.seller-item .selected{
+  position: absolute;
+  right: 20rpx;
+}

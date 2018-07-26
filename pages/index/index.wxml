@@ -1,4 +1,5 @@
 <!--index.wxml-->
 <view class="container">
 首页
+<button open-type="getUserInfo"></button>
 </view>

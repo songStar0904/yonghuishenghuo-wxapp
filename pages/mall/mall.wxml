@@ -1,2 +1,36 @@
 <!--pages/mall/mall.wxml-->
-<text>pages/mall/mall.wxml</text>
+<view class="container">
+  <!-- 头部定位和搜索 -->
+  <view class="mall-heard">
+    <view class="heard-left">
+      <image src="../../images/address_1.png" class="image"></image>
+      {{address}}</view>
+    <view class="heard-right">
+      <input value='{{search}}' placeholder='请输入商品名称'></input>
+      <icon type="search" color="#616161" size="14" class="search-icon" />
+    </view>
+  </view>
+  <view class="content" >
+    <view class="seller">
+      <view class="seller-icon">
+        <image src="{{current_seller.icon}}"></image>
+      </view>
+      <view class="seller-select" bindtap='openSeller'>{{seller.length}}个商家可选
+        <image src="../../images/arrow_r.png" class="arrow" style="transform: rotate({{open_seller_list ? -90 : 90}}deg);"></image>
+      </view>
+      <view class="seller-list" hidden="{{open_seller_list ? false : true}}">
+        <view class="seller-item" wx:for="{{seller}}" wx:key="{{index}}" bindtap='selectSeller' data-item="{{item}}">
+        <view class="seller-icon"><image src="{{item.icon}}"></image></view>
+        <view class="seller-info">
+        <view class="seller-name">{{item.name}}</view>
+        <text class="seller-text">距您{{item.address}}米，支持{{item.min}}分钟达</text>
+        </view>
+        <view class="selected" wx:if="{{item.id === current_seller.id}}">
+        <icon type="success_no_circle" color="#EE7942"></icon>
+        </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class=" {{open_seller_list ? 'mask' : ''}}">131as</view> -->
+</view>
