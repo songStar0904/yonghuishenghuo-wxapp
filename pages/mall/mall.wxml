@@ -10,7 +10,7 @@
       <icon type="search" color="#616161" size="14" class="search-icon" />
     </view>
   </view>
-  <view class="content">
+  <view class="seller-box">
     <view class="seller">
       <view class="seller-icon">
         <image src="{{current_seller.icon}}"></image>
@@ -18,7 +18,9 @@
       <view class="seller-select" bindtap='openSeller'>{{seller.length}}个商家可选
         <image src="../../images/arrow_r.png" class="arrow" style="transform: rotate({{open_seller_list ? -90 : 90}}deg);"></image>
       </view>
-      <view class="seller-list" hidden="{{open_seller_list ? false : true}}">
+      
+    </view>
+    <view class="seller-list" style="{{open_seller_list ? 'bottom: -' + (76 * seller.length * 2 + 33) + 'rpx' : 'bottom: 0rpx'}}">
         <view class="seller-item" wx:for="{{seller}}" wx:key="{{index}}" bindtap='selectSeller' data-item="{{item}}" data-idx="{{index}}">
           <view class="seller-icon">
             <image src="{{item.icon}}"></image>
@@ -32,7 +34,6 @@
           </view>
         </view>
       </view>
-    </view>
   </view>
   <view class="goods-content {{open_seller_list ? 'mask' : ''}}"></view>
 </view>

@@ -8,6 +8,8 @@
   border-top: 1rpx solid #616161;
   color: #fff;
   font-size: 26rpx;
+  position: relative;
+  z-index: 1002;
 }
 .mall-heard .heard-left{
   display: flex;
@@ -39,11 +41,13 @@
   padding: 10rpx 20rpx;
   font-size: 25rpx;
   border-bottom: 1rpx solid #eee;
+  z-index: 1002;
+  background: #fff;
 }
 .seller>.seller-icon{
   margin-left: 33.33%;
 }
-.seller .seller-icon image{
+.seller-icon image{
   width: 160rpx;
   height: 50rpx;
 }
@@ -52,15 +56,18 @@
   height: 20rpx;
   transform: rotate(90deg);
 }
-.seller .seller-list{
+.seller-box{
+  position: relative;
+}
+.seller-list{
   position: absolute;
-  z-index: 1001;
-  top: 60rpx;
   left: 0;
   width: 100%;
   background: #fff;
+  transition: ease-in-out  0.5s all;
+  z-index: 1000;
 }
-.seller .seller-list .seller-item{
+.seller-list .seller-item{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -69,7 +76,7 @@
   padding: 40rpx 0;
   border-bottom: 1rpx solid #eee;
 }
-.seller .seller-list .seller-item:last-child{
+.seller-list .seller-item:last-child{
   border: none;
 }
 .seller-item .seller-icon{

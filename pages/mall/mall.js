@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: '',
+    address: '定位中。。。',
     seller: [{
       id: 1,
       name: '永辉超市',
