@@ -50,7 +50,7 @@ Page({
   // 选择商家
   selectSeller: function(e) {
     this.setData({
-      current_seller: e.target.dataset.item,
+      current_seller: e.currentTarget.dataset.item,
       open_seller_list: false
     })
   },
