@@ -1,9 +1,7 @@
 <!--components/goods-item/goods-item.wxml-->
 <template name="goods-item">
-  <view class="item-box">
-    <view>
-      <image src="{{good.icon}}" class="goods-icon"></image>
-    </view>
+  <view class="item-box {{size}}">
+    <image src="{{good.icon}}" class="goods-icon"></image>
     <view class="goods-info">
     <text class="goods-name">{{good.name}}</text>
     <view class="goods-tab" wx:if="{{good.tab_price}}">称重补差价</view>

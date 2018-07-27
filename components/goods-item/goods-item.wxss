@@ -6,17 +6,32 @@
   position: relative;
   border-bottom: 1rpx solid #eee;
 }
+.item-box.small{
+  padding: 20rpx 10rpx;
+  margin: 0 10rpx;
+}
 .item-box .goods-icon{
   width: 200rpx;
   height: 200rpx;
+}
+.item-box.small .goods-icon{
+  width: 160rpx;
+  height: 160rpx;
 }
 .item-box .goods-info{
   margin-left: 40rpx;
   font-size: 28rpx;
   font-weight: 300;
 }
+.item-box.small .goods-info{
+  margin-left: 30rpx;
+  font-size: 25rpx;
+}
 .item-box .goods-no-tab{
   height: 125rpx;
+}
+.item-box.small .goods-no-tab{
+  height: 85rpx;
 }
 .item-box .goods-tab{
   width: 100rpx;
@@ -26,6 +41,9 @@
   color: #63B8FF;
   border: 3rpx solid #63B8FF;
   border-radius: 5rpx;
+}
+.item-box.small .goods-tab{
+  margin-top: 50rpx;
 }
 .item-box .goods-price{
   display: block;
@@ -37,4 +55,10 @@
   position: absolute;
   right: 20rpx;
   bottom: 40rpx;
+}
+.small .add-icon{
+  width: 40rpx;
+  height: 40rpx;
+  right: 20rpx;
+  bottom: 20rpx;
 }
