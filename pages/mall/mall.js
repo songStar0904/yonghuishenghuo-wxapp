@@ -1,4 +1,6 @@
 // pages/mall/mall.js
+var globalData = getApp().globalData
+let { getLocation } = require('../../utils/util.js')
 Page({
 
   /**
@@ -103,11 +105,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let that = this
     this.changeBreed()
     wx.authorize({
       scope: 'scope.userLocation',
       success: (res) => {
-        this.getLocation()
+        getLocation().then(address => {
+          that.setData({
+            address
+          })
+        })
       },
       fail: (res) => {
         console.log(res)
@@ -182,48 +189,6 @@ Page({
       open_seller_list: false
     })
     this.changeBreed()
-  },
-  getLocation: function() {
-    wx.showLoading({
-      title: '定位中...',
-    })
-    let that = this
-    wx.getLocation({
-      type: 'wgs84',
-      success: function(res) {
-
-        let latitude = res.latitude
-        let longitude = res.longitude
-        let ak = 'zcbTavuSRgQKQB9GyqZZRGYOoBht2RAP'
-        console.log(res)
-        wx.request({
-          url: `https://api.map.baidu.com/geocoder/v2/?ak=${ak}&location=${latitude},${longitude}&output=json`,
-          success: (res) => {
-            console.log(res)
-            let address = res.data.result.addressComponent
-            let data = address.district + address.street + address.street_number;
-            data = that.formateAddress(data)
-            that.setData({
-              address: data
-            })
-            wx.hideLoading()
-          },
-          fail: (res) => {
-            console.log(res)
-          }
-        })
-      },
-      fail: function(res) {
-        console.log(res)
-      }
-    })
-  },
-  formateAddress: (data) => {
-    if (data.length > 9) {
-      data = data.substring(0, 9)
-      return `${data}...`
-    }
-    return data
   },
 
   /**

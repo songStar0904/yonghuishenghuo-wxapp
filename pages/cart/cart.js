@@ -1,18 +1,31 @@
 // pages/cart/cart.js
+let globalData = getApp().globalData
+let {getLocation} = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    address: '定位中...'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (globalData.address) {
+      this.setData({
+        address: globalData.address
+      })
+    } else {
+      getLocation().then((address) => {
+        this.setData({
+          address
+        })
+      })
+    }
+    
   },
 
   /**

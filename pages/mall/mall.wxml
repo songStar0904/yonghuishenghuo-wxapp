@@ -40,7 +40,7 @@
   <view class="goods-content">
     <scroll-view scroll-y="true" class="breed-box">
       <view class="breed-item {{current_breed.id === item.id ? 'actived' : ''}}" wx:for="{{current_breed_list}}" wx:key="{{index}}" bindtap='chooseBreed' data-item="{{item}}">{{item.name}}
-        <view class="new_tab" wx:if="{{item.new}}">
+        <view class="new_tab" wx:if="{{item.new && current_breed.id !== item.id}}">
           <text>新</text>
         </view>
       </view>

@@ -1,1 +1,14 @@
 /* pages/cart/cart.wxss */
+.address{
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx;
+}
+.address>.address-icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.address>.add-address>image{
+  width: 30rpx;
+  height: 30rpx;
+}
