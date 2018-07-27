@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "配送到家"
+  "navigationBarTitleText": "配送到家",
+  "usingComponents": {
+    "goods-item": "/components/goods-item/goods-item"
+  }
 }

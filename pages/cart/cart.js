@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address: '定位中...'
+    address: '定位中...',
+    cart: [{
+      seller: '永辉生活'
+    }]
   },
 
   /**

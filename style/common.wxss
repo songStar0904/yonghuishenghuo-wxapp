@@ -1,9 +1,10 @@
+/* 卡片 */
 .card {
   background: #fff;
   padding: 20rpx;
   box-shadow: 1rpx 1rpx 1rpx 1rpx rgba(0, 0, 0, 0.1);
 }
-
+/* 遮罩层 */
 .mask {
   position: absolute;
   top: 0;
@@ -12,4 +13,11 @@
   right: 0;
   background-color: rgba(55, 55, 55, 0.6);
   z-index: 999;
+}
+/* 选择器 */
+.check{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  border: 1rpx solid #eee;
 }

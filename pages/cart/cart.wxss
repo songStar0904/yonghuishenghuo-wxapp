@@ -1,14 +1,45 @@
 /* pages/cart/cart.wxss */
+.container{
+  background: #eee;
+}
 .address{
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   padding: 40rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #dbdbdb;
+  background: #fff;
 }
 .address>.address-icon{
   width: 50rpx;
   height: 50rpx;
+  margin-right: 20rpx;
+}
+.address>.add-address{
+  position: absolute;
+  right: 20rpx;
+  color: #EE7942;
 }
 .address>.add-address>image{
-  width: 30rpx;
-  height: 30rpx;
+  width: 25rpx;
+  height: 25rpx;
+}
+.cart-box{
+  margin: 20rpx;
+}
+.cart-heard{
+  display: flex;
+  padding-bottom: 20rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.check{
+  margin: 10rpx;
+}
+.cart-heard>.seller{
+  margin-left: 50rpx;
+}
+.cart-heard>.seller>text{
+  font-size: 23rpx;
+  color: #999;
 }

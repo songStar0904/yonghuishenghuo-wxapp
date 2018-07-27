@@ -1,6 +1,34 @@
 <!--pages/cart/cart.wxml-->
 <view class="container">
-<view class="address">
-<image class="address-icon" src="../../images/address_2.png"></image>
-<text>{{address}}</text><view class="add-address">补全地址 <image src="../../images/arrow_r.png"></image></view></view>
+  <!-- 地址信息 -->
+  <view class="address">
+    <image class="address-icon" src="../../images/address_2.png"></image>
+    <text>{{address}}</text>
+    <view class="add-address">补全地址
+      <image src="../../images/arrow_r.png"></image>
+    </view>
+  </view>
+  <!-- 购物车列表 -->
+  <view class="card cart-box">
+    <view class="cart-heard">
+      <view class="check"></view>
+      <view class="seller">
+        <view>永辉生活</view>
+        <text>满18免运费</text>
+      </view>
+    </view>
+    <view class="cart-list">
+      <view class="cart-item">
+        <view class="check"></view>
+        <view class="goods-box">
+          <image src="" class="goods-icon"></image>
+          <view class="goods-info">
+            <view class="goods-name"></view>
+            <text class="price"></text>
+            <view class=""></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

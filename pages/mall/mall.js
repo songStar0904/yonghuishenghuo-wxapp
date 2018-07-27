@@ -1,6 +1,8 @@
 // pages/mall/mall.js
 var globalData = getApp().globalData
-let { getLocation } = require('../../utils/util.js')
+let {
+  getLocation
+} = require('../../utils/util.js')
 Page({
 
   /**
@@ -21,11 +23,7 @@ Page({
       address: 1200,
       min: 60
     }],
-    current_seller: {
-      id: 1,
-      name: '永辉超市',
-      icon: '../../images/seller_1.jpg'
-    },
+    current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
     current_breed: {},
     breed: [{
@@ -106,6 +104,13 @@ Page({
    */
   onLoad: function(options) {
     let that = this
+    if (!wx.getStorageSync('seller') || wx.getStorageSync('seller') == '') {
+      console.log(this.data.seller[0])
+      wx.setStorage({
+        key: 'seller',
+        data: this.data.seller[0]
+      })
+    }
     this.changeBreed()
     wx.authorize({
       scope: 'scope.userLocation',
@@ -148,8 +153,8 @@ Page({
       icon: '../../images/goods/goods_2.jpg',
       tab_price: false
     }]
-    let goods =[]
-    for(let i = 0; i < Math.random() * 10; i++) {
+    let goods = []
+    for (let i = 0; i < Math.random() * 10; i++) {
       goods.push(data[Math.random() > 0.5 ? 0 : 1]);
     }
     return goods
@@ -162,9 +167,12 @@ Page({
   },
   // 改变品种
   changeBreed: function() {
+    console.log(this.data.current_seller.id)
     let breed = this.data.breed.filter((item) => {
       return item.sid === this.data.current_seller.id
     })
+    
+    wx.setStorageSync('seller', breed[0])
     this.setData({
       current_breed_list: breed[0].list
     })

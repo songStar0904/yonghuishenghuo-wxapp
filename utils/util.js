@@ -23,14 +23,14 @@ const formateAddress = (data) => {
 }
 // 获得地址
 const getLocation = () => {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function(resolve, reject) {
     wx.showLoading({
       title: '定位中...',
     })
     let that = this
     wx.getLocation({
       type: 'wgs84',
-      success: function (res) {
+      success: function(res) {
 
         let latitude = res.latitude
         let longitude = res.longitude
@@ -51,15 +51,40 @@ const getLocation = () => {
           }
         })
       },
-      fail: function (res) {
+      fail: function(res) {
         console.log(res)
       }
     })
   })
-  
 }
-
+// 添加购物车
+const addCart = (item) => {
+  let cart = wx.getStorageSync('cart')
+  let data
+  let index = cart.indexOf(item.seller)
+  if (index === -1) {
+    let list = []
+    list.push(item.goods)
+    data = {
+      seller: item.seller,
+      list
+    }
+  } else {
+    let flag = cart[index].list
+    if (flag.indexOf(item.goods.id) === -1) {
+      cart[index].list.push(item.goods)
+    } else {
+      cart[index].list[flag.indexOf(item.goods.id)].num++
+    }
+  }
+  console.log(cart)
+  wx.setStorage({
+    key: 'cart',
+    data: cart,
+  })
+}
 module.exports = {
   formatTime,
-  getLocation
+  getLocation,
+  addCart
 }
