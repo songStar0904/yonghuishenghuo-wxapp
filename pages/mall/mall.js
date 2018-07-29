@@ -104,14 +104,20 @@ Page({
    */
   onLoad: function(options) {
     let that = this
-    if (!wx.getStorageSync('seller') || wx.getStorageSync('seller') == '') {
-      console.log(this.data.seller[0])
+    if (wx.getStorageSync('seller') == '') {
       wx.setStorage({
         key: 'seller',
-        data: this.data.seller[0]
+        data: this.data.seller[0],
+        success: (res) => {
+          that.setData({
+            current_seller: wx.getStorageSync('seller')
+          })
+          this.changeBreed()
+        }
       })
+    } else {
+      this.changeBreed()
     }
-    this.changeBreed()
     wx.authorize({
       scope: 'scope.userLocation',
       success: (res) => {
@@ -143,11 +149,13 @@ Page({
   // 随机生商品
   randomGoods: function() {
     let data = [{
+      id: 1,
       name: '蒜蓉贝类拼盘',
       price: 99,
       icon: '../../images/goods/goods_1.jpg',
       tab_price: true
     }, {
+      id: 2,
       name: '乐事薯片',
       price: 5,
       icon: '../../images/goods/goods_2.jpg',
@@ -172,7 +180,7 @@ Page({
       return item.sid === this.data.current_seller.id
     })
     
-    wx.setStorageSync('seller', breed[0])
+    // wx.setStorageSync('seller', breed[0])
     this.setData({
       current_breed_list: breed[0].list
     })
@@ -183,7 +191,6 @@ Page({
   },
   // 选择品种
   chooseBreed: function(e) {
-    console.log('sss')
     let breed = e.currentTarget.dataset.item
     this.setData({
       current_breed: breed
@@ -192,8 +199,11 @@ Page({
   },
   // 选择商家
   selectSeller: function(e) {
+    wx.setStorage({
+      key: 'seller',
+      data: e.currentTarget.dataset.item
+    })
     this.setData({
-      current_seller: e.currentTarget.dataset.item,
       open_seller_list: false
     })
     this.changeBreed()

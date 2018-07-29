@@ -24,8 +24,7 @@ Component({
         seller: wx.getStorageSync('seller'),
         goods: e.currentTarget.dataset.item
       }
-      cart.goods.num = 0
-      console.log(cart, globalData)
+      cart.goods.num = 1
       addCart(cart)
     }
   }

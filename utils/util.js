@@ -59,18 +59,25 @@ const getLocation = () => {
 }
 // 添加购物车
 const addCart = (item) => {
-  let cart = wx.getStorageSync('cart')
-  let data
-  let index = cart.indexOf(item.seller)
+  let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
+  let seller_id = []
+  cart instanceof Array && cart.forEach((item) => {
+    seller_id.push(item.seller.id)
+  })
+  let index = seller_id.indexOf(item.seller.id)
   if (index === -1) {
     let list = []
     list.push(item.goods)
-    data = {
+    cart.push({
       seller: item.seller,
       list
-    }
+    })
   } else {
-    let flag = cart[index].list
+    let cart_list = cart[index].list
+    let flag = []
+    cart_list instanceof Array && cart_list.forEach((item) => {
+      flag.push(item.id)
+    })
     if (flag.indexOf(item.goods.id) === -1) {
       cart[index].list.push(item.goods)
     } else {

@@ -88,9 +88,8 @@
   flex-direction: row;
   align-items: center;
   position: relative;
-  height: 100rpx;
+  height: 140rpx;
   margin-left: 20rpx;
-  padding: 20rpx 0;
   border-bottom: 1rpx solid #eee;
 }
 
