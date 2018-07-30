@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "配送购物车"
+  "navigationBarTitleText": "配送购物车",
+  "usingComponents": {
+    "recommend": "/components/recommend/recommend"
+  }
 }

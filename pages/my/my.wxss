@@ -109,25 +109,3 @@
   padding-bottom: 0rpx;
   border-bottom: none;
 }
-/* 推荐 */
-.recommend{
-}
-.r-heard{
-  display: flex;
-  justify-content: center;
-  margin: 20rpx auto;
-}
-.r-heard>.title{
-  font-size: 30rpx;
-  margin: 0 15rpx;
-}
-.r-heard>.sub{
-  display: inline-block;
-  width: 100rpx;
-  border-bottom: 1rpx solid #ababab;
-  align-self: center;
-}
-.recommend>.content{
-  margin: 0 -20rpx;
-  background: #fff;
-}

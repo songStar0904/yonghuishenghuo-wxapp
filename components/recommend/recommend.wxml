@@ -1,0 +1,12 @@
+<!--components/recommend/recommed.wxml-->
+<import src="../../components/goods-item/goods-item.wxml" />
+<view class="recommend">
+  <view class="r-heard">
+    <text class="sub"></text>
+    <text class="title">永辉生活，为你推荐</text>
+    <text class="sub"></text>
+  </view>
+  <view class="content">
+    <goods-item goods="{{item}}" size="small" wx:for="{{goods}}" wx:key="{{index}}"></goods-item>
+  </view>
+</view>

@@ -1,6 +1,5 @@
 <!--pages/my.wxml-->
 <import src="../../components/title-icon-navigate/title-icon-navigate.wxml" />
-<import src="../../components/goods-item/goods-item.wxml" />
 <view class="container">
   <!-- 用户信息 -->
   <view class="card user-card">
@@ -65,14 +64,5 @@
     </view>
   </view>
   <!-- 推荐 -->
-  <view class="recommend">
-    <view class="r-heard">
-      <text class="sub"></text>
-      <text class="title">永辉生活，为你推荐</text>
-      <text class="sub"></text>
-    </view>
-    <view class="content">
-      <template is="goods-item" wx:for="{{goodsData}}" wx:key="index" data="{{good: item}}" class="goods-item"/>
-    </view>
-  </view>
+  <recommend></recommend>
 </view>

@@ -116,3 +116,6 @@
   border-radius: 5rpx;
   font-size: 28rpx;
 }
+.recommend{
+  margin: 0 20rpx;
+}

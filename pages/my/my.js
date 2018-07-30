@@ -29,17 +29,6 @@ Page({
       url: '',
       note: '永辉生活小程序 V4.17.0.3',
       no_arrow: true
-    }],
-    goodsData: [{
-      name: '蒜蓉贝类拼盘',
-      price: 99,
-      icon: '../../images/goods/goods_1.jpg',
-      tab_price: true
-    }, {
-      name: '乐事薯片',
-      price: 5,
-      icon: '../../images/goods/goods_2.jpg',
-      tab_price: false
     }]
   },
 

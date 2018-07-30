@@ -31,7 +31,10 @@
             <view class="goods-name">{{goods.name}}</view>
             <view class="goods-footer">
               <text class="price goods-price">￥{{goods.price}}</text>
-              <view class="numCheck"><text class="check" bindtap='minusNum' data-sidx="{{index}}" data-gidx="{{gidx}}">-</text> {{goods.num}} <text class="check" bindtap='addNum' data-sidx="{{index}}" data-gidx="{{gidx}}">+</text></view>
+              <view class="numCheck">
+                <text class="check" bindtap='minusNum' data-sidx="{{index}}" data-gidx="{{gidx}}">-</text> {{goods.num}}
+                <text class="check" bindtap='addNum' data-sidx="{{index}}" data-gidx="{{gidx}}">+</text>
+              </view>
             </view>
           </view>
         </view>
@@ -52,5 +55,9 @@
     <image src='../../images/no_data.png'></image>
     <text>不剁手的日子好空虚</text>
     <view class="btn">去逛逛</view>
+  </view>
+  <!-- 推荐 -->
+  <view class="recommend">
+    <recommend></recommend>
   </view>
 </view>
