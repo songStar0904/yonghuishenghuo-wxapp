@@ -1,0 +1,7 @@
+var filterPrice = function (value) {
+  return parseFloat(isNaN(value) ? 0 : value).toFixed(2);
+}
+
+module.exports = {
+  filterPrice: filterPrice
+}
