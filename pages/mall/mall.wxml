@@ -1,4 +1,5 @@
 <!--pages/mall/mall.wxml-->
+
 <view class="container">
   <!-- 头部定位和搜索 -->
   <view class="mall-heard">
@@ -35,7 +36,7 @@
       </view>
     </view>
   </view>
-  <!-- 商品类容 -->
+  <!-- 商品内容 -->
   <view class="goods-content">
     <scroll-view scroll-y="true" class="breed-box">
       <view class="breed-item {{current_breed.id === item.id ? 'actived' : ''}}" wx:for="{{current_breed_list}}" wx:key="{{index}}" bindtap='chooseBreed' data-item="{{item}}">{{item.name}}

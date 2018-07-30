@@ -1,4 +1,5 @@
 <!--pages/cart/cart.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
   <!-- 地址信息 -->
   <view class="address">
@@ -9,26 +10,47 @@
     </view>
   </view>
   <!-- 购物车列表 -->
-  <view class="card cart-box">
+  <view class="card cart-box" wx:for="{{cart}}" wx:key="{{index}}" hidden="{{cart.length < 0}}">
     <view class="cart-heard">
-      <view class="check"></view>
+      <view class="check" bindtap='allCheck' data-sidx="{{index}}">
+        <icon type="success" size="15" color="#EE7942" hidden='{{item.check ? false : true}}' class="checked"></icon>
+      </view>
       <view class="seller">
-        <view>永辉生活</view>
+        <view>{{item.seller.name}}</view>
         <text>满18免运费</text>
       </view>
     </view>
     <view class="cart-list">
-      <view class="cart-item">
-        <view class="check"></view>
+      <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx">
+        <view class="check" bindtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}">
+          <icon type="success" size="15" color="#EE7942" hidden='{{goods.check ? false : true}}' class="checked"></icon>
+        </view>
         <view class="goods-box">
-          <image src="" class="goods-icon"></image>
+          <image src="{{goods.icon}}" class="goods-icon"></image>
           <view class="goods-info">
-            <view class="goods-name"></view>
-            <text class="price"></text>
-            <view class=""></view>
+            <view class="goods-name">{{goods.name}}</view>
+            <view class="goods-footer">
+              <text class="price goods-price">￥{{goods.price}}</text>
+              <view class="numCheck"><text class="check" bindtap='minusNum' data-sidx="{{index}}" data-gidx="{{gidx}}">-</text> {{goods.num}} <text class="check" bindtap='addNum' data-sidx="{{index}}" data-gidx="{{gidx}}">+</text></view>
+            </view>
           </view>
         </view>
       </view>
     </view>
+    <view class="cart-footer">
+      <view class="total-money">
+        <view>商品合计:
+          <text class="price">￥{{filter.filterPrice(item.totalMoney)}}</text>
+        </view>
+        <text>免运费</text>
+      </view>
+      <view class="settle">结算（{{item.total}}）</view>
+    </view>
+  </view>
+  <!-- 无数据 -->
+  <view hidden='{{cart.length !== 0}}' class="no-data">
+    <image src='../../images/no_data.png'></image>
+    <text>不剁手的日子好空虚</text>
+    <view class="btn">去逛逛</view>
   </view>
 </view>

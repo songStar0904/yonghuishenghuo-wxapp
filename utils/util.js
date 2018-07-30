@@ -70,7 +70,10 @@ const addCart = (item) => {
     list.push(item.goods)
     cart.push({
       seller: item.seller,
-      list
+      list,
+      total: 1,
+      totalMoney: item.goods.price,
+      check: true
     })
   } else {
     let cart_list = cart[index].list

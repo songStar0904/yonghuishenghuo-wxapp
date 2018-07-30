@@ -21,3 +21,29 @@
   border-radius: 50%;
   border: 1rpx solid #eee;
 }
+.numCheck{
+  display: flex;
+  align-items: center;
+}
+.numCheck>.check{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 40rpx;
+  height: 40rpx;
+}
+/* 金钱 */
+.price{
+  color: #EE7942;
+}
+/* 选择器 */
+.check{
+  position: relative;
+}
+.check>.checked{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

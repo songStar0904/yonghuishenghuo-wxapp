@@ -151,13 +151,13 @@ Page({
     let data = [{
       id: 1,
       name: '蒜蓉贝类拼盘',
-      price: 99,
+      price: 9.90,
       icon: '../../images/goods/goods_1.jpg',
       tab_price: true
     }, {
       id: 2,
       name: '乐事薯片',
-      price: 5,
+      price: 5.00,
       icon: '../../images/goods/goods_2.jpg',
       tab_price: false
     }]

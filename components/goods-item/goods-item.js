@@ -25,6 +25,7 @@ Component({
         goods: e.currentTarget.dataset.item
       }
       cart.goods.num = 1
+      cart.goods.check = true
       addCart(cart)
     }
   }

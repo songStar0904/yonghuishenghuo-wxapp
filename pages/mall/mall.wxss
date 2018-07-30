@@ -156,3 +156,8 @@
   transform: rotate(-45deg);
   font-size: 23rpx;
 }
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
