@@ -66,10 +66,34 @@ Page({
     let cart = this.data.cart
     let dataset = e.currentTarget.dataset
     let num = cart[dataset.sidx].list[dataset.gidx].num
+    let that = this
     if (num <= 1) {
+      wx.showModal({
+        title: '确认删除选中商品？',
+        content: '',
+        cancelColor: '#999',
+        confirmText:'确认删除',
+        confirmColor: '#FF6347',
+        success: () => {
+          that.delItem(dataset.sidx, dataset.gidx)
+        }
+      })
       return
     }
     cart[dataset.sidx].list[dataset.gidx].num = num - 1
+    this.setCart(cart)
+    this.getTotalMoney()
+  },
+  // 删除选中商品
+  delItem: function(sidx, gidx) {
+    let cart = this.data.cart
+    let length = cart[sidx].list.length
+    // 如果只有一个商品， 直接删除店家card
+    if (length <= 1) {
+      cart.splice(sidx, 1)
+    } else {
+      cart[sidx].list.splice(gidx, 1)
+    }
     this.setCart(cart)
     this.getTotalMoney()
   },
@@ -79,7 +103,8 @@ Page({
     cart[e.currentTarget.dataset.sidx].list[e.currentTarget.dataset.gidx].check = !cart[e.currentTarget.dataset.sidx].list[e.currentTarget.dataset.gidx].check
     // console.log(cart)
     this.setCart(cart)
-    this.init()
+    this.getTotalMoney()
+    this.setAllCheck()
   },
   // 全选事件
   allCheck: function(e) {
@@ -91,6 +116,7 @@ Page({
     })
     this.setCart(cart)
     this.getTotalMoney()
+    
   },
   // 是否全选
   setAllCheck: function() {
