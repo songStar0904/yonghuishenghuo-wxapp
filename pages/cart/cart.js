@@ -1,8 +1,13 @@
 // pages/cart/cart.js
 let globalData = getApp().globalData
 let {
-  getLocation
+  getLocation,
+  setBadge,
+  diff
 } = require('../../utils/util.js')
+let {
+  watch
+} = require('../../utils/watch.js')
 Page({
 
   /**
@@ -17,7 +22,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    watch(this, {
+      cart(newVal) {
+        wx.setStorage({
+          key: 'cart',
+          data: newVal,
+          success: () => {
+            setBadge()
+          }
+        })
+      }
+    })
     if (globalData.address) {
       this.setData({
         address: globalData.address
@@ -41,10 +56,6 @@ Page({
     this.setData({
       cart
     })
-    wx.setStorage({
-      key: 'cart',
-      data: cart,
-    })
   },
   // 改变cart
   changeCart: function() {
@@ -55,7 +66,7 @@ Page({
   },
   // 增加数量
   addNum: function(e) {
-    let cart = this.data.cart
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     let dataset = e.currentTarget.dataset
     cart[dataset.sidx].list[dataset.gidx].num = cart[dataset.sidx].list[dataset.gidx].num + 1
     this.setCart(cart)
@@ -63,7 +74,7 @@ Page({
   },
   // 减少数量
   minusNum: function(e) {
-    let cart = this.data.cart
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     let dataset = e.currentTarget.dataset
     let num = cart[dataset.sidx].list[dataset.gidx].num
     let that = this
@@ -72,10 +83,12 @@ Page({
         title: '确认删除选中商品？',
         content: '',
         cancelColor: '#999',
-        confirmText:'确认删除',
+        confirmText: '确认删除',
         confirmColor: '#FF6347',
-        success: () => {
-          that.delItem(dataset.sidx, dataset.gidx)
+        success: (res) => {
+          if (res.confirm) {
+            that.delItem(dataset.sidx, dataset.gidx)
+          }
         }
       })
       return
@@ -86,7 +99,7 @@ Page({
   },
   // 删除选中商品
   delItem: function(sidx, gidx) {
-    let cart = this.data.cart
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     let length = cart[sidx].list.length
     // 如果只有一个商品， 直接删除店家card
     if (length <= 1) {
@@ -99,7 +112,7 @@ Page({
   },
   // 单选事件
   checkItem: function(e) {
-    let cart = this.data.cart
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     cart[e.currentTarget.dataset.sidx].list[e.currentTarget.dataset.gidx].check = !cart[e.currentTarget.dataset.sidx].list[e.currentTarget.dataset.gidx].check
     // console.log(cart)
     this.setCart(cart)
@@ -108,7 +121,7 @@ Page({
   },
   // 全选事件
   allCheck: function(e) {
-    let cart = this.data.cart
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     let flag = !cart[e.currentTarget.dataset.sidx].check
     cart[e.currentTarget.dataset.sidx].check = flag
     cart[e.currentTarget.dataset.sidx].list.forEach((item, index) => {
@@ -116,12 +129,11 @@ Page({
     })
     this.setCart(cart)
     this.getTotalMoney()
-    
+
   },
   // 是否全选
   setAllCheck: function() {
-    let cart = this.data.cart
-    // debugger
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     cart.forEach((item, index) => {
       let flag = true
       let goods = item.list
@@ -137,7 +149,7 @@ Page({
   },
   // 计算价格
   getTotalMoney: function() {
-    let cart = this.data.cart
+    let cart = JSON.parse(JSON.stringify(this.data.cart))
     cart.forEach((item, index) => {
       let totalMoney = 0,
         total = 0
@@ -150,7 +162,7 @@ Page({
       cart[index].totalMoney = totalMoney
       cart[index].total = total
     })
-    console.log(cart)
+    // console.log(cart)
     this.setCart(cart)
     // console.log(this.data.cart[1].totalMoney)
   },

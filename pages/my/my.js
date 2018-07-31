@@ -1,4 +1,7 @@
 // pages/my.js
+let {
+  setBadge
+} = require('../../utils/util.js')
 Page({
 
   /**
@@ -30,6 +33,10 @@ Page({
       note: '永辉生活小程序 V4.17.0.3',
       no_arrow: true
     }]
+  },
+  // 添加购物车
+  changeCart: function(cart) {
+    setBadge()
   },
 
   /**

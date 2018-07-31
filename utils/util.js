@@ -58,7 +58,7 @@ const getLocation = () => {
   })
 }
 // 添加购物车
-const addCart = (item) => {
+const addCart = (item, fn) => {
   let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
   let seller_id = []
   cart instanceof Array && cart.forEach((item) => {
@@ -91,10 +91,35 @@ const addCart = (item) => {
   wx.setStorage({
     key: 'cart',
     data: cart,
+    success: () => {
+      fn && fn()
+    }
   })
+}
+// 设置购物车小红点
+const setBadge = () => {
+  let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
+  let num = 0
+  cart.forEach((item) => {
+    item.list && item.list.forEach(goods => {
+      num += goods.num
+    })
+  })
+  if (num > 0) {
+    wx.setTabBarBadge({
+      index: 2,
+      text: `${num}` // num转换string
+    })
+  }
+}
+// 判断对象是否相同
+const diff = (obj1, obj2) => {
+  return JSON.stringify(obj1) === JSON.stringify (obj2)
 }
 module.exports = {
   formatTime,
   getLocation,
-  addCart
+  addCart,
+  setBadge,
+  diff
 }

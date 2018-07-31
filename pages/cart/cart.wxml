@@ -13,7 +13,7 @@
   <view class="card cart-box" wx:for="{{cart}}" wx:key="{{index}}" hidden="{{cart.length < 0}}">
     <view class="cart-heard">
       <view class="check" bindtap='allCheck' data-sidx="{{index}}">
-        <icon type="success" size="15" color="#EE7942" hidden='{{item.check ? false : true}}' class="checked"></icon>
+        <icon type="success" size="17" color="#EE7942" hidden='{{item.check ? false : true}}' class="checked"></icon>
       </view>
       <view class="seller">
         <view>{{item.seller.name}}</view>
@@ -23,7 +23,7 @@
     <view class="cart-list">
       <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx">
         <view class="check" bindtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}">
-          <icon type="success" size="15" color="#EE7942" hidden='{{goods.check ? false : true}}' class="checked"></icon>
+          <icon type="success" size="17" color="#EE7942" hidden='{{goods.check ? false : true}}' class="checked"></icon>
         </view>
         <view class="goods-box">
           <image src="{{goods.icon}}" class="goods-icon"></image>

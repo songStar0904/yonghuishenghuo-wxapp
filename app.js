@@ -1,4 +1,7 @@
 //app.js
+let {
+  setBadge
+} = require('./utils/util.js')
 App({
   globalData: {
     address: '',
@@ -6,6 +9,7 @@ App({
     cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : '' 
   },
   onLaunch: function () {
+    setBadge()
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

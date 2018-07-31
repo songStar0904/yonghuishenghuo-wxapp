@@ -16,8 +16,8 @@
 }
 /* 选择器 */
 .check{
-  width: 30rpx;
-  height: 30rpx;
+  width: 35rpx;
+  height: 35rpx;
   border-radius: 50%;
   border: 1rpx solid #eee;
 }

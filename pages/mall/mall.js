@@ -1,7 +1,8 @@
 // pages/mall/mall.js
 var globalData = getApp().globalData
 let {
-  getLocation
+  getLocation,
+  setBadge
 } = require('../../utils/util.js')
 Page({
 
@@ -98,9 +99,6 @@ Page({
     open_seller_list: false,
     goods: []
   },
-  set current_seller(r) {
-    cosole.log(r + 'ssss')
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -133,6 +131,10 @@ Page({
         console.log(res)
       }
     })
+  },
+  // 添加购物车
+  changeCart: function (cart) {
+    setBadge()
   },
   // 获取商品
   getGoods: function() {

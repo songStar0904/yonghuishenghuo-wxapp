@@ -47,7 +47,7 @@
     </scroll-view>
     <scroll-view scroll-y class="goods-box">
     <view wx:for="{{goods}}" wx:key="{{index}}">
-    <goods-item goods="{{item}}" size="small"></goods-item>
+    <goods-item goods="{{item}}" size="small" bind:addCart="changeCart"></goods-item>
     </view>
       
     </scroll-view>
