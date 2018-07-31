@@ -30,7 +30,7 @@
           <view class="goods-info">
             <view class="goods-name">{{goods.name}}</view>
             <view class="goods-footer">
-              <text class="price goods-price">￥{{goods.price}}</text>
+              <text class="price goods-price">￥{{filter.filterPrice(goods.price)}}</text>
               <view class="numCheck">
                 <text class="check" bindtap='minusNum' data-sidx="{{index}}" data-gidx="{{gidx}}">-</text> {{goods.num}}
                 <text class="check" bindtap='addNum' data-sidx="{{index}}" data-gidx="{{gidx}}">+</text>
@@ -58,6 +58,6 @@
   </view>
   <!-- 推荐 -->
   <view class="recommend">
-    <recommend></recommend>
+    <recommend bind:addCart="changeCart"></recommend>
   </view>
 </view>

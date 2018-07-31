@@ -19,7 +19,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    addCart: (e) => {
+    addCart: function(e) {
       let cart = {
         seller: wx.getStorageSync('seller'),
         goods: e.currentTarget.dataset.item
@@ -27,6 +27,7 @@ Component({
       cart.goods.num = 1
       cart.goods.check = true
       addCart(cart)
+      this.triggerEvent('addCart', wx.getStorageSync('cart'))
     }
   }
 })

@@ -87,7 +87,7 @@ const addCart = (item) => {
       cart[index].list[flag.indexOf(item.goods.id)].num++
     }
   }
-  console.log(cart)
+  // console.log(item, cart)
   wx.setStorage({
     key: 'cart',
     data: cart,

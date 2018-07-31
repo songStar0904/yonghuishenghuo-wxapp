@@ -98,7 +98,9 @@ Page({
     open_seller_list: false,
     goods: []
   },
-
+  set current_seller(r) {
+    cosole.log(r + 'ssss')
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -179,7 +181,7 @@ Page({
     let breed = this.data.breed.filter((item) => {
       return item.sid === this.data.current_seller.id
     })
-    
+
     // wx.setStorageSync('seller', breed[0])
     this.setData({
       current_breed_list: breed[0].list
@@ -204,7 +206,8 @@ Page({
       data: e.currentTarget.dataset.item
     })
     this.setData({
-      open_seller_list: false
+      open_seller_list: false,
+      current_seller: e.currentTarget.dataset.item
     })
     this.changeBreed()
   },

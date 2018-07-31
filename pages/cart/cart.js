@@ -46,6 +46,13 @@ Page({
       data: cart,
     })
   },
+  // 改变cart
+  changeCart: function() {
+    this.setData({
+      cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : ''
+    })
+    this.getTotalMoney()
+  },
   // 增加数量
   addNum: function(e) {
     let cart = this.data.cart
@@ -132,9 +139,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : ''
-    })
+    this.changeCart()
     if (this.data.cart.length > 0) {
       this.init()
     }

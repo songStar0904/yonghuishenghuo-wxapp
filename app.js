@@ -2,7 +2,8 @@
 App({
   globalData: {
     address: '',
-    userinfo: null
+    userinfo: null,
+    cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : '' 
   },
   onLaunch: function () {
     // 展示本地存储能力
