@@ -60,7 +60,7 @@ Page({
   // 改变cart
   changeCart: function() {
     this.setData({
-      cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : ''
+      cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
     })
     this.getTotalMoney()
   },
@@ -165,6 +165,12 @@ Page({
     // console.log(cart)
     this.setCart(cart)
     // console.log(this.data.cart[1].totalMoney)
+  },
+  // 跳转mall页面
+  toMall: function () {
+    wx.switchTab({
+      url: '/pages/mall/mall'
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

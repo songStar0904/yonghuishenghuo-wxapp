@@ -32,11 +32,6 @@
   width: 40rpx;
   height: 40rpx;
 }
-/* 金钱 */
-.price{
-  color: #EE7942;
-}
-/* 选择器 */
 .check{
   position: relative;
 }
@@ -46,4 +41,12 @@
   bottom: 0;
   left: 0;
   right: 0;
+}
+/* 金钱 */
+.price{
+  color: #EE7942;
+}
+
+.bg-hover{
+  background: #FFFAF0;
 }

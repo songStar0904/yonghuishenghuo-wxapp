@@ -17,12 +17,12 @@
       </view>
       <view class="seller">
         <view>{{item.seller.name}}</view>
-        <text>满18免运费</text>
+        <text>满{{item.seller.free_freight}}免运费</text>
       </view>
     </view>
     <view class="cart-list">
-      <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx">
-        <view class="check" bindtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}">
+      <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx" hover-class="bg-hover">
+        <view class="check" bindtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}" >
           <icon type="success" size="17" color="#EE7942" hidden='{{goods.check ? false : true}}' class="checked"></icon>
         </view>
         <view class="goods-box">
@@ -45,16 +45,17 @@
         <view>商品合计:
           <text class="price">￥{{filter.filterPrice(item.totalMoney)}}</text>
         </view>
-        <text>免运费</text>
+        <text wx:if="{{item.totalMoney < item.seller.free_freight}}">运费￥{{filter.filterPrice(item.seller.freight)}}元</text>
+        <text wx:else>免运费</text>
       </view>
-      <view class="settle">结算（{{item.total}}）</view>
+      <view class="settle">结算({{item.total}})</view>
     </view>
   </view>
   <!-- 无数据 -->
   <view hidden='{{cart.length !== 0}}' class="no-data">
     <image src='../../images/no_data.png'></image>
     <text>不剁手的日子好空虚</text>
-    <view class="btn">去逛逛</view>
+    <view class="btn" bindtap='toMall'>去逛逛</view>
   </view>
   <!-- 推荐 -->
   <view class="recommend">

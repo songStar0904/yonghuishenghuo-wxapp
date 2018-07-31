@@ -1,5 +1,5 @@
 <!--pages/mall/mall.wxml-->
-
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class="container">
   <!-- 头部定位和搜索 -->
   <view class="mall-heard">
@@ -28,7 +28,7 @@
         </view>
         <view class="seller-info">
           <view class="seller-name">{{item.name}}</view>
-          <text class="seller-text">距您{{item.address}}米，支持{{item.min}}分钟达</text>
+          <text class="seller-text">距您{{filter.filterDistance(item.address)}}，支持{{filter.filterTime(item.min)}}送达</text>
         </view>
         <view class="selected" wx:if="{{item.id === current_seller.id}}">
           <icon type="success_no_circle" color="#EE7942"></icon>

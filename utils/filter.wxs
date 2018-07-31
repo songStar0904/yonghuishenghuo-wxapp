@@ -1,7 +1,24 @@
-var filterPrice = function (value) {
+var filterPrice = function(value) {
   return parseFloat(isNaN(value) ? 0 : value).toFixed(2);
 }
-
+var filterTime = function(value) {
+  if (value < 60) {
+    return value + '秒'
+  } else if (60 <= value && value < 3600) {
+    return parseInt(value / 60) + '分钟'
+  } else {
+    return parseInt(value / 3600) + '小时'
+  }
+}
+var filterDistance = function(value) {
+  if (value < 1000) {
+    return value +'米'
+  } else if (value >= 1000) {
+    return parseInt(value / 1000) + '千米'
+  }
+}
 module.exports = {
-  filterPrice: filterPrice
+  filterPrice: filterPrice,
+  filterTime: filterTime,
+  filterDistance: filterDistance
 }

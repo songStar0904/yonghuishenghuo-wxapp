@@ -16,13 +16,17 @@ Page({
       name: '永辉超市',
       icon: '../../images/seller_1.jpg',
       address: 651,
-      min: 30
+      min: 1800,
+      freight: 6,
+      free_freight: 18
     }, {
       id: 2,
       name: '蛙鱼工坊',
       icon: '../../images/seller_2.jpg',
       address: 1200,
-      min: 60
+      min: 3600,
+      freight: 6,
+      free_freight: 20
     }],
     current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
@@ -133,7 +137,7 @@ Page({
     })
   },
   // 添加购物车
-  changeCart: function (cart) {
+  changeCart: function(cart) {
     setBadge()
   },
   // 获取商品

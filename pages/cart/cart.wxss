@@ -43,9 +43,7 @@
   font-size: 23rpx;
   color: #999;
 }
-.cart-list{
-  padding-right: 10rpx;
-}
+
 .cart-item{
   display: flex;
   align-items: center;
