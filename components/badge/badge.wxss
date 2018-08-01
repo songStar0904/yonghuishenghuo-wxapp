@@ -1,0 +1,14 @@
+/* components/badge/badge.wxss */
+.badge{
+  position: relative;
+}
+.badge>.bot{
+  position: absolute;
+  top: -10rpx;
+  right: -15rpx;
+  padding: 0 10rpx;
+  border-radius: 20rpx;
+  background: red;
+  color: #fff;
+  font-size: 23rpx;
+}

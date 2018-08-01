@@ -19,7 +19,8 @@ Component({
     cart: [],
     current_cart: {},
     seller: wx.getStorageSync('seller'),
-    cartNum: 0
+    cartNum: 0,
+    total: 0
   },
 
   /**
@@ -64,24 +65,20 @@ Component({
     changeNum: function(e) {
       let gid = this.properties.gid
       let that = this
-      let cartNum = this.data.cartNum
-      if (e.currentTarget.dataset.type === 'add') {
-        cartNum++
-      } else {
-        cartNum--
-      }
-      let cart = this.data.cart
+      let num = e.currentTarget.dataset.type == 'add' ? 1 : -1
+      let cartNum = this.data.cartNum + num
+      let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
       let sid = this.data.seller.id
-      cart.forEach((goods, index) => {
-        if (goods.seller.id === sid) {
-          goods.list.forEach((item, i) => {
-            if (item.id === gid) {
+      cart.forEach((item, index) => {
+        if (item.seller.id === sid) {
+          item.total += num
+          item.list.forEach((goods, i) => {
+            if (goods.id === gid) {
               if (cartNum <= 0) {
                 cart = that.delItem(index, i)
               } else {
-                item.num = cartNum
+                goods.num = cartNum
               }
-              
             }
           })
         }
@@ -91,7 +88,9 @@ Component({
         data: cart,
         success: () => {
           that.setData({
-            cartNum
+            cartNum,
+            cart: cart[0],
+            total: this.data.total + num
           })
         }
       })
@@ -107,6 +106,19 @@ Component({
         cart[sidx].list.splice(gidx, 1)
       }
       return cart
+    },
+    // 设置total
+    setTotal: function() {
+      let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
+      let total = 0
+      cart.forEach(item => {
+        item.list.forEach(goods => {
+          total += goods.num
+        })
+      })
+      this.setData({
+        total
+      })
     }
   },
 
@@ -117,9 +129,10 @@ Component({
       return item.seller.id === seller.id
     })[0]
     this.setData({
-      cart,
+      cart: cart[0],
       current_cart
     })
+    this.setTotal()
   },
   ready: function() {
     this.isAddCart()

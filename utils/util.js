@@ -76,6 +76,7 @@ const addCart = (item, fn) => {
       check: true
     })
   } else {
+    cart[index].total ++
     let cart_list = cart[index].list
     let flag = []
     cart_list instanceof Array && cart_list.forEach((item) => {
@@ -109,6 +110,10 @@ const setBadge = () => {
     wx.setTabBarBadge({
       index: 2,
       text: `${num}` // num转换string
+    })
+  } else {
+    wx.removeTabBarBadge({
+      index: 2
     })
   }
 }
