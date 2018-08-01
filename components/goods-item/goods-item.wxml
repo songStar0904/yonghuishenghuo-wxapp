@@ -1,7 +1,8 @@
 <!--components/goods-item/goods-item.wxml-->
 <wxs module="filter" src="../../utils/filter.wxs"></wxs>
-<view class="item-box {{size}}">
-  <image src="{{goods.icon}}" class="goods-icon"></image>
+<navigator url="/pages/goods/goods?id={{goods.id}}" >
+<view class="item-box bg-hover {{size}}">
+  <image src="{{goods.icon[0]}}" class="goods-icon"></image>
   <view class="goods-info">
     <text class="goods-name">{{goods.name}}</text>
     <view class="goods-tab" wx:if="{{goods.tab_price}}">称重补差价</view>
@@ -9,6 +10,7 @@
     <text class="goods-price">￥{{filter.filterPrice(goods.price)}}</text>
   </view>
   <view>
-    <image src="../../images/add.png" class="add-icon" bindtap='addCart' data-item="{{goods}}"></image>
+    <image src="../../images/add.png" class="add-icon" catchtap='addCart' data-item="{{goods}}"></image>
   </view>
 </view>
+</navigator>

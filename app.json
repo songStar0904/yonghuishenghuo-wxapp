@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/cart/cart",
     "pages/mall/mall",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/goods/goods"
   ],
   "window": {
     "backgroundTextStyle": "light",

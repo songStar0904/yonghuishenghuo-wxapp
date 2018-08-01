@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -50,7 +50,14 @@
 				{
 					"id": -1,
 					"name": "购物车",
-					"pathName": "pages/cart/cart"
+					"pathName": "pages/cart/cart",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "商品详情",
+					"pathName": "pages/goods/goods",
+					"query": "id=1"
 				}
 			]
 		}

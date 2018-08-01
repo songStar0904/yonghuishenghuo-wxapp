@@ -21,23 +21,23 @@
       </view>
     </view>
     <view class="cart-list">
-      <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx" hover-class="bg-hover">
-        <view class="check" bindtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}" >
+      <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx">
+        <view class="check" catchtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}" >
           <icon type="success" size="17" color="#EE7942" hidden='{{goods.check ? false : true}}' class="checked"></icon>
         </view>
-        <view class="goods-box">
-          <image src="{{goods.icon}}" class="goods-icon"></image>
+        <navigator url="/pages/goods/goods?id={{goods.id}}" class="goods-box" hover-class="none">
+          <image src="{{goods.icon[0]}}" class="goods-icon"></image>
           <view class="goods-info">
             <view class="goods-name">{{goods.name}}</view>
             <view class="goods-footer">
               <text class="price goods-price">￥{{filter.filterPrice(goods.price)}}</text>
               <view class="numCheck">
-                <text class="check" bindtap='minusNum' data-sidx="{{index}}" data-gidx="{{gidx}}">-</text> {{goods.num}}
-                <text class="check" bindtap='addNum' data-sidx="{{index}}" data-gidx="{{gidx}}">+</text>
+                <text class="check" catchtap='minusNum' data-sidx="{{index}}" data-gidx="{{gidx}}">-</text> {{goods.num}}
+                <text class="check" catchtap='addNum' data-sidx="{{index}}" data-gidx="{{gidx}}">+</text>
               </view>
             </view>
           </view>
-        </view>
+        </navigator>
       </view>
     </view>
     <view class="cart-footer">
@@ -59,6 +59,6 @@
   </view>
   <!-- 推荐 -->
   <view class="recommend">
-    <recommend bind:addCart="changeCart"></recommend>
+    <recommend bind:addCart="changeCart" class="recommend-box"></recommend>
   </view>
 </view>

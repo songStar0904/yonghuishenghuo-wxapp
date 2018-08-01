@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
 }
-.numCheck>.check{
+.numCheck .check{
   display: flex;
   flex-direction: row;
   justify-content: center;

@@ -7,6 +7,6 @@
     <text class="sub"></text>
   </view>
   <view class="content">
-    <goods-item goods="{{item}}" size="small" wx:for="{{goods}}" wx:key="{{index}}" bind:addCart="addCart"></goods-item>
+    <goods-item goods="{{item}}" size="small" wx:for="{{goods}}" wx:key="{{index}}" bind:addCart="addCart" item-box="goods-item"></goods-item>
   </view>
 </view>

@@ -1,0 +1,60 @@
+<!--pages/goods/goods.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view class="container">
+  <swiper indicator-dots="true" indicator-active-color="#EE7942" width="500" class="swiper">
+    <block wx:for="{{goods.icon}}" wx:key="{{key}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" class="goods-icon" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="info-box">
+    <view class="goods-info">
+      <view class="info-left">
+        <text class="goods-name">{{goods.name}}</text>
+        <text class="goods-title">{{goods.title}}</text>
+      </view>
+      <view class="info-right">
+        <image src="../../images/share.png" class="share-icon"></image> 分享</view>
+    </view>
+    <view class="goods-price">￥
+      <text class="price">{{filter.filterPrice(goods.price)}}</text>
+      <text class="tab">称重退差价</text>
+    </view>
+    <view class="ticket">
+      <view class="ticket-icon">
+        <image src="../../images/ticket.png"></image>
+        <text>7折券</text>
+      </view>
+      <view class="get-ticket">
+        <text>领券</text>
+        <image src="../../images/arrow_r.png"></image>
+      </view>
+    </view>
+    <view class="seller">
+      <view>超级物种-生态园店 为您配送</view>
+      <view>现货，21：00前下单最快30分钟送达</view>
+    </view>
+  </view>
+  <view class="detail">
+    <text class="detail-title">商品详情</text>
+    <view class="goods-detail">
+      <view class="detail-item">
+        <text>产地</text>
+        <text class="item">{{goods.detail.place}}</text>
+      </view>
+      <view class="detail-item border">
+        <text>规格</text>
+        <text class="item">{{goods.detail.size}}</text>
+      </view>
+      <view class="detail-item">
+        <text>保质期</text>
+        <text class="item">{{goods.detail.qgp}}</text>
+      </view>
+    </view>
+    <view class="detail-icon">
+      <image src="{{item}}" wx:for="{{goods.detail.icon}}" wx:key="{{index}}"></image>
+      </view>
+  </view>
+  <tab-bar gid="{{gid}}" goods="{{goods}}" tab-bar="tab-bar"></tab-bar>
+</view>

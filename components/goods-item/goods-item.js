@@ -1,7 +1,10 @@
 // components/goods-item/goods-item.js
 let globalData = getApp().globalData
-let {addCart} = require('../../utils/util.js')
+let {
+  addCart
+} = require('../../utils/util.js')
 Component({
+  externalClasses: ['goods-item'],
   /**
    * 组件的属性列表
    */
@@ -13,8 +16,7 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {
-  },
+  data: {},
   /**
    * 组件的方法列表
    */
@@ -28,9 +30,12 @@ Component({
       cart.goods.num = 1
       cart.goods.check = true
       addCart(cart, function() {
+        wx.showToast({
+          title: '添加成功',
+        })
         that.triggerEvent('addCart', wx.getStorageSync('cart'))
       })
-      
+
     }
   }
 })

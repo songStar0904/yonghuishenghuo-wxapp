@@ -6,7 +6,8 @@ App({
   globalData: {
     address: '',
     userinfo: null,
-    cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : '' 
+    cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : [],
+    seller: {}
   },
   onLaunch: function () {
     setBadge()

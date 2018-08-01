@@ -1,5 +1,6 @@
 // pages/mall/mall.js
 var globalData = getApp().globalData
+let goodsData = require('../../libs/goodsData.js')
 let {
   getLocation,
   setBadge
@@ -156,22 +157,9 @@ Page({
   },
   // 随机生商品
   randomGoods: function() {
-    let data = [{
-      id: 1,
-      name: '蒜蓉贝类拼盘',
-      price: 9.90,
-      icon: '../../images/goods/goods_1.jpg',
-      tab_price: true
-    }, {
-      id: 2,
-      name: '乐事薯片',
-      price: 5.00,
-      icon: '../../images/goods/goods_2.jpg',
-      tab_price: false
-    }]
     let goods = []
     for (let i = 0; i < Math.random() * 10; i++) {
-      goods.push(data[Math.random() > 0.5 ? 0 : 1]);
+      goods.push(goodsData[Math.random() > 0.5 ? 0 : 1]);
     }
     return goods
   },
