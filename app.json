@@ -4,13 +4,15 @@
     "pages/cart/cart",
     "pages/mall/mall",
     "pages/my/my",
-    "pages/goods/goods"
+    "pages/goods/goods",
+    "pages/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3B3B3B",
     "navigationBarTitleText": "永辉生活",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eeeeee"
   },
   "tabBar": {
     "color": "#666",

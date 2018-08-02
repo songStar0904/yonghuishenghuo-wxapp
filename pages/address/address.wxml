@@ -1,0 +1,34 @@
+<!--pages/address/address.wxml-->
+<view class="container">
+<form bindsubmit="formSubmit">
+   <view class="card user-info">
+   <view class="section">
+     <view class="label">收货人</view>
+     <input placeholder-class placeholder="收货人姓名" name="userName"></input>
+   </view>
+   <view class="section">
+     <view class="label">手机号</view>
+     <input placeholder-class placeholder="输入手机号" name="phone"></input>
+   </view>
+   </view>
+   <view class="card address-info">
+   <view class="section">
+   <view class="label">所在城市</view>
+   <view name="city">深圳</view>
+   </view>
+   <view class="section">
+     <view class="label">详细地址</view>
+     <input placeholder-class placeholder="小区、街道、写字楼、学校" name="address1"></input>
+   </view>
+   <view class="section">
+     <view class="label">楼号-门牌号</view>
+     <input placeholder-class placeholder="例: 5号楼301室" name="address2"></input>
+   </view>
+   <view class="section">
+     <view class="label">标签</view>
+       <text name="tag">家</text>
+   </view>
+   </view>
+   <button formType="submit" class="submit">保存收货地址</button>
+</form>
+</view>

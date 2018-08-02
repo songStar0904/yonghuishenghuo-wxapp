@@ -5,9 +5,10 @@
   <view class="address">
     <image class="address-icon" src="../../images/address_2.png"></image>
     <text>{{address}}</text>
-    <view class="add-address">补全地址
+    <navigator hover-class='none' url="/pages/address/address" class="add-address">
+      补全地址
       <image src="../../images/arrow_r.png"></image>
-    </view>
+    </navigator>
   </view>
   <!-- 购物车列表 -->
   <view class="card cart-box" wx:for="{{cart}}" wx:key="{{index}}" hidden="{{cart.length < 0}}">
@@ -22,7 +23,7 @@
     </view>
     <view class="cart-list">
       <view class="cart-item" wx:for="{{item.list}}" wx:for-item="goods" wx:for-index="gidx" wx:key="gidx">
-        <view class="check" catchtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}" >
+        <view class="check" catchtap='checkItem' data-sidx="{{index}}" data-gidx="{{gidx}}">
           <icon type="success" size="17" color="#EE7942" hidden='{{goods.check ? false : true}}' class="checked"></icon>
         </view>
         <navigator url="/pages/goods/goods?id={{goods.id}}" class="goods-box" hover-class="none">

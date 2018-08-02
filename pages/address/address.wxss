@@ -1,0 +1,19 @@
+/* pages/address/address.wxss */
+.container{
+  padding: 20rpx;
+}
+.card{
+  padding: 0 30rpx;
+}
+.card>.section{
+  border-bottom: 1rpx solid #eee;
+}
+.card>.section:last-child{
+  border: none;
+}
+.address-info{
+  margin-top: 20rpx;
+}
+form .submit{
+  margin-top: 80rpx;
+}

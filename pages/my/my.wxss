@@ -1,7 +1,6 @@
 /* pages/my.wxss */
 .container{
   padding: 20rpx 20rpx 0;
-  background: #eee;
 }
 /* user-card */
 .user-card{

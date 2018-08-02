@@ -1,3 +1,6 @@
 /**app.wxss**/
 @import "./style/common.wxss";
 @import "./components/title-icon-navigate/title-icon-navigate.wxss";
+page{
+  background: #eee;
+}

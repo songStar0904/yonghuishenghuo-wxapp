@@ -50,3 +50,26 @@
 .bg-hover{
   background: #FFFAF0;
 }
+/* 表单 */
+form .section{
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+}
+form .section>input{
+  flex-grow: 1;
+}
+form .section .input-placeholder{
+  font-size: 30rpx;
+}
+form .section>.label{
+  margin-right: 50rpx;
+}
+form .submit{
+  background: #EE7942;
+  color: #fff;
+}
+form .submit.button-hover{
+  opacity: 0.7;
+}

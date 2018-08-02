@@ -1,6 +1,5 @@
 /* pages/goods/goods.wxss */
 .container{
-  background: #eee;
   margin-bottom: 90rpx;
 }
 .swiper{

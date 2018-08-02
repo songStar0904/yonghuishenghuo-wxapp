@@ -15,7 +15,9 @@
         <text class="goods-title">{{goods.title}}</text>
       </view>
       <view class="info-right">
-        <image src="../../images/share.png" class="share-icon"></image> 分享</view>
+        <image src="../../images/share.png" class="share-icon"></image> 
+        分享
+      </view>
     </view>
     <view class="goods-price">￥
       <text class="price">{{filter.filterPrice(goods.price)}}</text>
@@ -54,7 +56,7 @@
     </view>
     <view class="detail-icon">
       <image src="{{item}}" wx:for="{{goods.detail.icon}}" wx:key="{{index}}"></image>
-      </view>
+    </view>
   </view>
   <tab-bar gid="{{gid}}" goods="{{goods}}" tab-bar="tab-bar"></tab-bar>
 </view>
