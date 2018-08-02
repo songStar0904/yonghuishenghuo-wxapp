@@ -1,21 +1,123 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.heard{
+  position: relative;
+  text-align: center;
+  height: 600rpx;
+  background: #3B3B3B;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+.heard>.title{
+  color: #EE7942;
+}
+.heard>.vip-card{
+  width: 600rpx;
+  height: 400rpx;
+  margin: 40rpx auto;
+  background: #EE7942;
+  border-radius: 10rpx;
+}
+.heard>.heard-info{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 30rpx;
+  position: absolute;
+  top: 250rpx;
+  left: -100rpx;
+  right: -100rpx;
+  bottom: 0;
+  background: #fff;
+  border-radius: 80% 80% 0 0;
+}
+.heard>.heard-info>.info-box{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 600rpx;
+}
+.heard>.heard-info>.info-box>.info-item{
+  flex-grow: 1;
+  font-size: 30rpx;
+}
+.heard>.heard-info>.info-box>.info-item:nth-child(2) {
+  font-size: 35rpx;
+}
+.heard>.heard-info>.info-box>.info-item>.item-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30rpx auto;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 20rpx;
+  background: #EECBAD;
   border-radius: 50%;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.heard>.heard-info>.info-box>.info-item>.item-icon>image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.heard>.heard-info>.info-box>.info-item>.scan{
+  width: 150rpx;
+  height: 150rpx;
+  font-size: 40rpx;
+}
+.heard>.heard-info>.info-box>.info-item>.scan>image{
+  width: 130rpx;
+  height: 130rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.my-ticket{
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 40rpx 20rpx;
+  margin: 20rpx 0;
+}
+.my-ticket>.item-box{
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+.my-ticket>.item-box:first-child{
+  border-right: 1rpx solid #eee;
+}
+.my-ticket>.item-box>.item-info{
+  font-size: 26rpx;
+  color: #999;
+}
+.my-ticket>.item-box>.item-info>.title{
+  font-size: 28rpx;
+  color: black;
+  margin-bottom: 10rpx;
+}
+.my-ticket>.item-box>.item-icon{
+  display: flex;
+  align-items: center;
+  width: 80rpx;
+  height: 80rpx;
+}
+.footer{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 40rpx;
+  background: #fff;
+}
+.footer>.footer-item{
+  flex-grow: 1;
+  font-size: 30rpx;
+
+
+}
+.footer>.footer-item .gray{
+  font-size: 26rpx;
+  color: #999;
+}
+.footer>.footer-item>.footer-icon{
+  position: absolute;
+  bottom: 0;
+  right: 40rpx;
+  width: 200rpx;
+  height: 150rpx;
 }

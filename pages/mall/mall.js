@@ -1,6 +1,7 @@
 // pages/mall/mall.js
 var globalData = getApp().globalData
 let goodsData = require('../../libs/goodsData.js')
+let sellerData = require('../../libs/sellerData.js')
 let {
   getLocation,
   setBadge
@@ -12,23 +13,7 @@ Page({
    */
   data: {
     address: '定位中...',
-    seller: [{
-      id: 1,
-      name: '永辉超市',
-      icon: '../../images/seller_1.jpg',
-      address: 651,
-      min: 1800,
-      freight: 6,
-      free_freight: 18
-    }, {
-      id: 2,
-      name: '蛙鱼工坊',
-      icon: '../../images/seller_2.jpg',
-      address: 1200,
-      min: 3600,
-      freight: 6,
-      free_freight: 20
-    }],
+    seller: sellerData,
     current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
     current_breed: {},

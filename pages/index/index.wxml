@@ -1,5 +1,56 @@
 <!--index.wxml-->
 <view class="container">
-首页
-<button open-type="getUserInfo"></button>
+  <view class="heard">
+    <text class="title">健 康 每 一 天</text>
+    <view class="vip-card"></view>
+    <view class="heard-info">
+    <view class="info-box">
+      <view class="info-item">
+        <view class="item-icon">
+          <image src="../../images/cart_h.png"></image>
+        </view>
+        <text>扫码购物车</text>
+      </view>
+      <view class="info-item">
+        <view class="item-icon scan">
+          <image src="../../images/scan_h.png"></image>
+        </view>
+        <text>扫码购</text>
+      </view>
+      <view class="info-item">
+        <view class="item-icon">
+          <image src="../../images/seller_h.png"></image>
+        </view>
+        <text>附件门店</text>
+      </view>
+      </view>
+    </view>
+  </view>
+  <view class="my-ticket">
+    <view class="item-box">
+      <view class="item-info">
+        <view class="title">我的优惠券</view>
+        <text>3张可领取</text>
+      </view>
+      <image class="item-icon" src="../../images/ticket_h.png"></image>
+    </view>
+    <view class="item-box">
+      <view class="item-info">
+        <view class="title">我的礼品卡</view>
+        <text>亲友送礼温暖情义</text>
+      </view>
+      <image class="item-icon" src="../../images/gift_h.png"></image>
+    </view>
+  </view>
+  <view class='footer'>
+    <view class="footer-item">
+      <view>最快30分钟
+        <text class="price">配送到家</text>
+      </view>
+      <text class="gray">满18元包邮</text>
+    </view>
+    <view class="footer-item">
+    <image src="../../images/home_h.png" class="footer-icon"></image></view>
+    
+  </view>
 </view>

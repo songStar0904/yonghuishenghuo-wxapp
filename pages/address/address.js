@@ -22,7 +22,7 @@ Page({
     }],
     showModal: false, // 是否打开modal
     newTag: '',
-    limit: 3 // tag最多限制
+    limit: 5 // tag最多限制
   },
   formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -88,6 +88,12 @@ Page({
     this.setData({
       newTag: e.detail.value
     })
+  },
+  // 获得手机号码
+  getPhoneNumber: function (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
   },
   /**
    * 生命周期函数--监听页面加载

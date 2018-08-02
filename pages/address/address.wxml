@@ -41,4 +41,5 @@
       <input class="input" value="{{newTag}}" placeholder="自定义标签(最多4个中文字符)" bindinput="setNewTag"></input>
     </view>
   </modal>
+ 
 </view>
