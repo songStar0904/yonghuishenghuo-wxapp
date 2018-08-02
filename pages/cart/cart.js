@@ -5,9 +5,7 @@ let {
   setBadge,
   diff
 } = require('../../utils/util.js')
-let {
-  watch
-} = require('../../utils/watch.js')
+let watch = require('../../utils/watch.js')
 Page({
 
   /**

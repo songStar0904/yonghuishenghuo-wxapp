@@ -24,6 +24,4 @@ const watch = (ctx, obj) => {
     })
   })
 }
-module.exports = {
-  watch
-}
+module.exports = watch

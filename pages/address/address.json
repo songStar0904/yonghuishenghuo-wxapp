@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "新建收获地址"
+  "navigationBarTitleText": "新建收获地址",
+  "usingComponents": {
+    "tag": "/components/tag/tag"
+  }
 }

@@ -17,3 +17,27 @@
 form .submit{
   margin-top: 80rpx;
 }
+.tag-box{
+  display: flex;
+}
+.tag-box>.tag{
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  margin: 2px 4px 2px 0;
+  padding: 0 8px;
+  border: 1px solid #e8eaec;
+  border-radius: 3px;
+  background: #f7f7f7;
+  font-size: 12px;
+  vertical-align: middle;
+  opacity: 1;
+  overflow: hidden;
+  cursor: pointer;
+  color: #999;
+}
+modal .input{
+  background: #e8eaec;
+  border-radius: 8rpx;
+  padding: 10rpx 15rpx;
+}
