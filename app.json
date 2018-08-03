@@ -5,7 +5,8 @@
     "pages/mall/mall",
     "pages/my/my",
     "pages/goods/goods",
-    "pages/address/address"
+    "pages/address/address",
+    "pages/address-list/address-list"
   ],
   "window": {
     "backgroundTextStyle": "light",

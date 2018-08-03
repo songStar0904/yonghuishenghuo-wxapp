@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "新建收获地址",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#fff",
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "tag": "/components/tag/tag"
+  }
+}

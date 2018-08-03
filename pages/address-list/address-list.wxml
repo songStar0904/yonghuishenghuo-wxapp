@@ -1,0 +1,27 @@
+<!--pages/address-list/address-list.wxml-->
+<view class="container">
+  <view wx:for="{{address}}" wx:key="{{index}}" class="address-box">
+    <view class="address-info">
+      <view class="info-heard">
+        <view class="tag-box" wx:if="{{item.tag}}" wx:for="{{item.tag}}" wx:for-item="tag" wx:key="{{index}}">
+          <tag color="#EE7942">{{tag}}</tag>
+        </view>
+        <text class="address">{{item.address1}} {{item.address2}}</text>
+      </view>
+      <view class="user-info">
+        <text class="user-name">{{item.userName}}</text>
+        <text class="phone">{{item.phone}}</text>
+      </view>
+      <view class="info-footer">
+        可配送商家:超级物种，永辉生活
+      </view>
+    </view>
+    <navigator url="/pages/address/address?id={{item.id}}">
+        <image src='../../images/edit.png' class="edit"></image>
+      </navigator>
+  </view>
+  <view class="footer">
+    <view class="add-address">
+      <text>+</text> 新建地址</view>
+  </view>
+</view>

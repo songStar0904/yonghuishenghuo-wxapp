@@ -12,9 +12,9 @@
       </view>
     </view>
     <view class="card address-info">
-      <view class="section">
+      <view class="section" bindtap='showSheet'>
         <view class="label">所在城市</view>
-        <input placeholder-class placeholder="请选择城市" name="city" maxlength='5' value='{{address.city}}' disabled="true" bindtap='showSheet'></input>
+        <input placeholder-class placeholder="请选择城市" name="city" maxlength='5' value='{{address.city}}' disabled="true" ></input>
         <image src="../../images/arrow_r.png" class="arrow"></image>
       </view>
       <view class="section">

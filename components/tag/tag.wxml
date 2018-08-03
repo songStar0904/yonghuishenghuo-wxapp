@@ -1,7 +1,7 @@
 <!--components/tag/tag.wxml-->
-<view class="tag" wx:if="{{checkable}}" style="{{style}}">
+<view class="tag checkable" wx:if="{{checkable}}" style="{{style}}">
   <slot></slot>
 </view>
-<view class="tag" wx:else>
+<view class="tag" wx:else style="color: {{color}}; border-color: {{color}}">
   <slot></slot>
 </view>

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -64,6 +64,11 @@
 					"name": "收货地址",
 					"pathName": "pages/address/address",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/address-list/address-list"
 				}
 			]
 		}

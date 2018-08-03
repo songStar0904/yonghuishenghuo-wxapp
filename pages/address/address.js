@@ -1,5 +1,6 @@
 // pages/address/address.js
 let city = require('../../libs/cityData.js')
+let addressData = require('../../libs/addressData.js')
 let verifiction = require('../../utils/verifiction.js')
 Page({
 
@@ -24,23 +25,30 @@ Page({
     }],
     rules: {
       userName: [{
-        required: true, msg: '收货人不能为空!'
+        required: true,
+        msg: '收货人不能为空!'
       }, {
-        max: 5, msg: '收货人不能大于5个字符'
+        max: 5,
+        msg: '收货人不能大于5个字符'
       }],
       phone: [{
-        required: true, msg: '手机号不能为空!'
+        required: true,
+        msg: '手机号不能为空!'
       }, {
-        phone: true, msg: '请输入正确手机号!'
+        phone: true,
+        msg: '请输入正确手机号!'
       }],
       city: [{
-        required: true, msg: '城市不能为空!'
+        required: true,
+        msg: '城市不能为空!'
       }],
       address1: [{
-        required: true, msg: '地址不能为空!'
+        required: true,
+        msg: '地址不能为空!'
       }],
       address2: [{
-        required: true, msg: '楼号-门牌号不能为空!'
+        required: true,
+        msg: '楼号-门牌号不能为空!'
       }]
     },
     showModal: false, // 是否打开modal
@@ -49,16 +57,48 @@ Page({
     limit: 5, // tag最多限制
     city
   },
+  // 获得address
+  getAddress: function(id) {
+    let address = addressData.filter(item => {
+      return item.id == id
+    })[0]
+    address.tag && this.setTag(address.tag)
+    this.setData({
+      address
+    })
+  },
+  // 设置tag
+  setTag: function(t) {
+    let tags = this.data.tag
+    t.forEach(item => {
+      let flag = false
+      for(let i = 0; i< tags.length; i++){
+        if (item == tags[i].value) {
+          tags[i].checked = true
+          flag = true
+          break
+        }
+      }
+      !flag && tags.push({
+        value: item,
+        checked: true
+      })
+    })
+    this.setData({
+      tag: tags
+    })
+  },
   formSubmit: function(e) {
     let data = e.detail.value
-    if (verifiction(this.data.rules, data)){
-      console.log('form发生了submit事件，携带数据为：', e.detail.value)
-      // wx.showToast({
-      //   title: '请输入完整表单!',
-      //   icon: 'none'
-      // })
+    if (verifiction(this.data.rules, data)) {
+      let tag = this.data.tag
+      data.tag = []
+      tag.forEach(item => {
+        item.checked && data.tag.push(item.value)
+      })
+      console.log('form发生了submit事件，携带数据为：', data)
     }
-   
+
   },
   // 打开sheet
   showSheet: function() {
@@ -128,7 +168,7 @@ Page({
     })
   },
   // 获得手机号码
-  getPhoneNumber: function (e) {
+  getPhoneNumber: function(e) {
     console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
@@ -137,7 +177,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    options.id && this.getAddress(options.id)
   },
 
   /**
