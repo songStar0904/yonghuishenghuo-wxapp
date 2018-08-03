@@ -1,5 +1,6 @@
 // pages/address/address.js
 let city = require('../../libs/cityData.js')
+let verifiction = require('../../utils/verifiction.js')
 Page({
 
   /**
@@ -21,6 +22,27 @@ Page({
       value: '公司',
       checked: false
     }],
+    rules: {
+      userName: [{
+        required: true, msg: '收货人不能为空!'
+      }, {
+        max: 5, msg: '收货人不能大于5个字符'
+      }],
+      phone: [{
+        required: true, msg: '手机号不能为空!'
+      }, {
+        phone: true, msg: '请输入正确手机号!'
+      }],
+      city: [{
+        required: true, msg: '城市不能为空!'
+      }],
+      address1: [{
+        required: true, msg: '地址不能为空!'
+      }],
+      address2: [{
+        required: true, msg: '楼号-门牌号不能为空!'
+      }]
+    },
     showModal: false, // 是否打开modal
     showSheet: false, // 是否打开sheet
     newTag: '',
@@ -28,17 +50,15 @@ Page({
     city
   },
   formSubmit: function(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-  },
-  checkName: function(e) {
-    let name = e.detail.value
-    if (name.length <= 0) {
-      wx.showToast({
-        title: '请输入收货人'
-      })
-    } else {
-      return true
+    let data = e.detail.value
+    if (verifiction(this.data.rules, data)){
+      console.log('form发生了submit事件，携带数据为：', e.detail.value)
+      // wx.showToast({
+      //   title: '请输入完整表单!',
+      //   icon: 'none'
+      // })
     }
+   
   },
   // 打开sheet
   showSheet: function() {

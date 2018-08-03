@@ -4,11 +4,11 @@
     <view class="card user-info">
       <view class="section">
         <view class="label">收货人</view>
-        <input placeholder-class placeholder="收货人姓名" name="userName" maxlength='5' bindinput='checkName' value='{{address.userName}}'></input>
+        <input placeholder-class placeholder="收货人姓名" name="userName" maxlength='5' value='{{address.userName}}'></input>
       </view>
       <view class="section">
         <view class="label">手机号</view>
-        <input placeholder-class placeholder="输入手机号" name="phone" maxlength='11' value='{{address.phone}}'></input>
+        <input placeholder-class placeholder="输入手机号" name="phone" type="number" maxlength='11' value='{{address.phone}}'></input>
       </view>
     </view>
     <view class="card address-info">
