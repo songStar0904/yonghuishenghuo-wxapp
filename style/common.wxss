@@ -66,6 +66,12 @@ form .section .input-placeholder{
 form .section>.label{
   margin-right: 50rpx;
 }
+form .section>.arrow{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 10rpx;
+  opacity: 0.4;
+}
 form .submit{
   background: #EE7942;
   color: #fff;

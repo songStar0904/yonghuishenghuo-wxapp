@@ -14,11 +14,13 @@
     <view class="card address-info">
       <view class="section">
         <view class="label">所在城市</view>
-        <input placeholder-class placeholder="输入手机号" name="city" maxlength='5' value='{{address.city}}'></input>
+        <input placeholder-class placeholder="请选择城市" name="city" maxlength='5' value='{{address.city}}' disabled="true" bindtap='showSheet'></input>
+        <image src="../../images/arrow_r.png" class="arrow"></image>
       </view>
       <view class="section">
         <view class="label">详细地址</view>
         <input placeholder-class placeholder="小区、街道、写字楼、学校" name="address1" value='{{address.address1}}'></input>
+        <!-- <image src="../../images/arrow_r.png" class="arrow"></image> -->
       </view>
       <view class="section">
         <view class="label">楼号-门牌号</view>
@@ -41,5 +43,8 @@
       <input class="input" value="{{newTag}}" placeholder="自定义标签(最多4个中文字符)" bindinput="setNewTag"></input>
     </view>
   </modal>
+ <my-action-sheet bindchange="actionSheetbindchange" showSheet="{{showSheet}}">
  
+    <city-list data="{{city}}" my-city="{{address.city}}" binddetail="selectCity" ></city-list>
+</my-action-sheet>
 </view>

@@ -2,6 +2,7 @@
 let {
   setBadge
 } = require('./utils/util.js')
+let seller = require('./libs/sellerData.js')
 App({
   globalData: {
     address: '',

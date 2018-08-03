@@ -3,6 +3,7 @@
   <view class="heard">
     <text class="title">健 康 每 一 天</text>
     <view class="vip-card"></view>
+    <view class="info-wrap">
     <view class="heard-info">
     <view class="info-box">
       <view class="info-item">
@@ -25,6 +26,7 @@
       </view>
       </view>
     </view>
+  </view>
   </view>
   <view class="my-ticket">
     <view class="item-box">

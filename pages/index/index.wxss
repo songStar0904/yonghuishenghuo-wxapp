@@ -1,4 +1,8 @@
 /**index.wxss**/
+.contaner{
+  width: 100%;
+  overflow: hidden;
+}
 .heard{
   position: relative;
   text-align: center;
@@ -15,7 +19,12 @@
   background: #EE7942;
   border-radius: 10rpx;
 }
-.heard>.heard-info{
+.heard>.info-wrap{
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+}
+.heard>.info-wrap>.heard-info{
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -28,42 +37,43 @@
   background: #fff;
   border-radius: 80% 80% 0 0;
 }
-.heard>.heard-info>.info-box{
+.heard>.info-wrap>.heard-info>.info-box{
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   width: 600rpx;
 }
-.heard>.heard-info>.info-box>.info-item{
+.heard>.info-wrap>.heard-info>.info-box>.info-item{
   flex-grow: 1;
   font-size: 30rpx;
 }
-.heard>.heard-info>.info-box>.info-item:nth-child(2) {
+.heard>.info-wrap>.heard-info>.info-box>.info-item:nth-child(2) {
   font-size: 35rpx;
 }
-.heard>.heard-info>.info-box>.info-item>.item-icon{
+.heard>.info-wrap>.heard-info>.info-box>.info-item>.item-icon{
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 30rpx auto;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
   padding: 20rpx;
   background: #EECBAD;
   border-radius: 50%;
 }
-.heard>.heard-info>.info-box>.info-item>.item-icon>image{
-  width: 80rpx;
-  height: 80rpx;
+.heard>.info-wrap>.heard-info>.info-box>.info-item>.item-icon>image{
+  width: 60rpx;
+  height: 60rpx;
 }
-.heard>.heard-info>.info-box>.info-item>.scan{
-  width: 150rpx;
-  height: 150rpx;
+.heard>.info-wrap>.heard-info>.info-box>.info-item>.scan{
+  width: 140rpx;
+  height: 140rpx;
   font-size: 40rpx;
+  background: linear-gradient(to right, #EECBAD , #EE7942);
 }
-.heard>.heard-info>.info-box>.info-item>.scan>image{
-  width: 130rpx;
-  height: 130rpx;
+.heard>.info-wrap>.heard-info>.info-box>.info-item>.scan>image{
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .my-ticket{

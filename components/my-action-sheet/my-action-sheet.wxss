@@ -1,0 +1,25 @@
+/* components/my-action-sheet/my-action-sheet.wxss */
+@import "/style/common.wxss";
+.content{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1000;
+}
+.sheet-heard{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding: 20rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.sheet-heard>.cancel{
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  color: #999;
+  font-size: 26rpx;
+}

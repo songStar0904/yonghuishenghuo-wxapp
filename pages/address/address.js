@@ -1,4 +1,5 @@
 // pages/address/address.js
+let city = require('../../libs/cityData.js')
 Page({
 
   /**
@@ -21,8 +22,10 @@ Page({
       checked: false
     }],
     showModal: false, // 是否打开modal
+    showSheet: false, // 是否打开sheet
     newTag: '',
-    limit: 5 // tag最多限制
+    limit: 5, // tag最多限制
+    city
   },
   formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
@@ -36,6 +39,21 @@ Page({
     } else {
       return true
     }
+  },
+  // 打开sheet
+  showSheet: function() {
+    this.setData({
+      showSheet: true
+    })
+  },
+  // 选择城市
+  selectCity: function(e) {
+    let address = this.data.address
+    address.city = e.detail.name
+    this.setData({
+      address,
+      showSheet: false
+    })
   },
   // 选择标签
   checkTag: function(e) {

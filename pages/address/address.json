@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "新建收获地址",
   "usingComponents": {
-    "tag": "/components/tag/tag"
+    "tag": "/components/tag/tag",
+    "my-action-sheet": "/components/my-action-sheet/my-action-sheet",
+    "city-list": "/components/city-list/city-list"
   }
 }
