@@ -17,8 +17,8 @@
       </view>
     </view>
     <navigator url="/pages/address/address?id={{item.id}}">
-        <image src='../../images/edit.png' class="edit"></image>
-      </navigator>
+      <image src='../../images/edit.png' class="edit"></image>
+    </navigator>
   </view>
   <view class="footer">
     <view class="add-address">

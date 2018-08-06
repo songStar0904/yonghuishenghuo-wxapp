@@ -2,6 +2,8 @@
 let {
   setBadge
 } = require('../../utils/util.js')
+import toUrl from '../../template/title-icon-navigate/title-icon-navigate.js'
+
 Page({
 
   /**
@@ -11,7 +13,7 @@ Page({
     setData: [{
       title: '地址管理',
       icon: '../../images/address.png',
-      url: ''
+      url: '/pages/address-list/address-list'
     }, {
       title: '联系客服',
       icon: '../../images/hot_line.png',
@@ -38,7 +40,8 @@ Page({
   changeCart: function(cart) {
     setBadge()
   },
-
+  // 跳转页面
+  toUrl,
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,5 +1,5 @@
 <!--pages/my.wxml-->
-<import src="../../components/title-icon-navigate/title-icon-navigate.wxml" />
+<import src="../../template/title-icon-navigate/title-icon-navigate.wxml" />
 <view class="container">
   <!-- 用户信息 -->
   <view class="card user-card">
