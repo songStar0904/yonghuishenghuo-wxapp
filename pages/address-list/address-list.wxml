@@ -21,7 +21,8 @@
     </navigator>
   </view>
   <view class="footer">
-    <view class="add-address">
-      <text>+</text> 新建地址</view>
+    <navigator url="/pages/address/address" class="add-address">
+        <text>+</text> 新建地址
+    </navigator>
   </view>
 </view>

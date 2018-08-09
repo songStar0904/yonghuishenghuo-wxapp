@@ -39,7 +39,7 @@ Component({
           return item.id === +this.properties.gid
         })
         let cartNum = 0
-        if (goods) {
+        if (goods.length > 0) {
           cartNum = goods[0].num
         }
         this.setData({
@@ -57,7 +57,8 @@ Component({
       }
       addCart(cart, () => {
         this.setData({
-          cartNum: 1
+          cartNum: 1,
+          total: this.data.total + 1
         })
       })
     },
@@ -97,7 +98,7 @@ Component({
     },
     // 删除选中商品
     delItem: function(sidx, gidx) {
-      let cart = JSON.parse(JSON.stringify(this.data.cart))
+      let cart = JSON.parse(JSON.stringify(wx.getStorageSync('cart')))
       let length = cart[sidx].list.length
       // 如果只有一个商品， 直接删除店家card
       if (length <= 1) {

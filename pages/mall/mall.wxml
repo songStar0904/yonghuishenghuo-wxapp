@@ -21,7 +21,7 @@
         <image src="../../images/arrow_r.png" class="arrow" style="transform: rotate({{open_seller_list ? -90 : 90}}deg);"></image>
       </view>
     </view>
-    <view class="seller-list" style="{{open_seller_list ? 'bottom: -' + (70 * seller.length) + 'px' : 'bottom: 0rpx'}}">
+    <view class="seller-list" style="{{open_seller_list ? 'bottom: -'+ top +'px' : 'bottom: 0rpx'}}">
       <view class="seller-item" wx:for="{{seller}}" wx:key="{{index}}" bindtap='selectSeller' data-item="{{item}}" data-idx="{{ seller.length}}">
         <view class="seller-icon">
           <image src="{{item.icon}}"></image>

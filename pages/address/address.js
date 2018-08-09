@@ -97,6 +97,11 @@ Page({
         item.checked && data.tag.push(item.value)
       })
       console.log('form发生了submit事件，携带数据为：', data)
+      // 此处修改添加地址
+
+      wx.navigateBack({
+        delta: 1
+      })
     }
 
   },

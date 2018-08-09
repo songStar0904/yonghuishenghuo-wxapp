@@ -7,7 +7,6 @@ let {
   setBadge
 } = require('../../utils/util.js')
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -87,7 +86,19 @@ Page({
       }]
     }],
     open_seller_list: false,
-    goods: []
+    goods: [],
+    top: 0 // 下拉高度
+  },
+  // 获得seller-list高度
+  getRect: function () {
+    let that = this
+    wx.createSelectorQuery().select('.seller-list').boundingClientRect(function (rect) {
+      that.setData({
+        top: rect.height
+      })
+      // console.log(that.data.top)
+    }).exec()
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -108,6 +119,7 @@ Page({
     } else {
       this.changeBreed()
     }
+    this.getRect()
     wx.authorize({
       scope: 'scope.userLocation',
       success: (res) => {
