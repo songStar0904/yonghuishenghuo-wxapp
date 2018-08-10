@@ -1,1 +1,13 @@
 /* components/tab/tab.wxss */
+.tabs-tab{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 25rpx 10rpx;
+}
+.tabs-tab.tabs-tab-current{
+  padding-bottom: 21rpx;
+  color: #EE7942;
+  border-bottom: 4rpx solid #EE7942;
+}

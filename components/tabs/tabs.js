@@ -4,7 +4,7 @@ Component({
     multipleSlots: true // 在组件定义时的选项中启用多slot支持
   },
   relations: {
-    '../tab/index': {
+    '../tab/tab': {
       type: 'child',
       linked() {
         this.changeCurrent();
@@ -52,7 +52,7 @@ Component({
    */
   methods: {
     changeCurrent(val = this.data.current) {
-      let items = this.getRelationNodes('../tab/index');
+      let items = this.getRelationNodes('../tab/tab');
       const len = items.length;
 
       if (len > 0) {

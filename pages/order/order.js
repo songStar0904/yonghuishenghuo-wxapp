@@ -5,7 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    tabs: [{
+      key: 0,
+      title: '全部'
+    }, {
+      key: 1,
+      title: '待支付'
+    }, {
+      key: 2,
+      title: '代配送'
+    }, {
+      key: 3,
+      title: '退款/售后'
+    }],
+    current: 0
+  },
+  handleChange: function({detail}){
+    this.setData({
+      current: detail.key
+    });
   },
 
   /**

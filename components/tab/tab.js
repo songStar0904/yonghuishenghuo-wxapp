@@ -1,7 +1,7 @@
 // components/tab/tab.js
 Component({
   relations: {
-    '../tabs/index': {
+    '../tabs/tabs': {
       type: 'parent'
     }
   },
@@ -51,7 +51,7 @@ Component({
       this.setData({ scroll });
     },
     handleClickItem() {
-      const parent = this.getRelationNodes('../tabs/index')[0];
+      const parent = this.getRelationNodes('../tabs/tabs')[0];
       parent.emitEvent(this.data.key);
     }
   }

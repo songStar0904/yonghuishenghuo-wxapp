@@ -1,5 +1,14 @@
 <!--pages/order/order.wxml-->
-<alert type="notice" closable show-icon>
-  <!-- <image src="../../images/notice.png" slot="icon"></image> -->
-  订单列表仅显示小程序配送订单
-</alert>
+<view class="container">
+  <alert type="notice" closable show-icon>
+    <!-- <image src="../../images/notice.png" slot="icon"></image> -->
+    订单列表仅显示小程序配送订单
+  </alert>
+  <tabs current="{{ current }}" color="#EE7942" bindchange="handleChange">
+    <tab wx:for="{{tabs}}" wx:key="{{index}}" key="{{item.key}}" title="{{item.title}}"></tab>
+  </tabs>
+  <view class="all" hidden='{{current != 0}}'>all</view>
+  <view class="sell" hidden='{{current != 1}}'>sell</view>
+  <view class=" deliver" hidden='{{current != 2}}'> deliver</view>
+  <view class="customer" hidden='{{current != 3}}'>customer</view>
+</view>

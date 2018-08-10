@@ -1,1 +1,9 @@
 /* components/tabs/tabs.wxss */
+.tabs{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background: #fff;
+  font-size: 28rpx;
+}
