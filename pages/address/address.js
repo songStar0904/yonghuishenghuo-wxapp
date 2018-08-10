@@ -55,16 +55,18 @@ Page({
     showSheet: false, // 是否打开sheet
     newTag: '',
     limit: 5, // tag最多限制
+    id: null,
     city
   },
   // 获得address
   getAddress: function(id) {
     let address = addressData.filter(item => {
       return item.id == id
-    })[0]
+    })[0] || {}
     address.tag && this.setTag(address.tag)
     this.setData({
-      address
+      address,
+      id
     })
   },
   // 设置tag
@@ -72,14 +74,13 @@ Page({
     let tags = this.data.tag
     t.forEach(item => {
       let flag = false
-      for(let i = 0; i< tags.length; i++){
+      for (let i = 0; i < tags.length; i++) {
         if (item == tags[i].value) {
           tags[i].checked = true
           flag = true
           break
         }
-      }
-      !flag && tags.push({
+      }!flag && tags.push({
         value: item,
         checked: true
       })
@@ -98,9 +99,21 @@ Page({
       })
       console.log('form发生了submit事件，携带数据为：', data)
       // 此处修改添加地址
-
+      let title
+      if (this.data.id) {
+        // 修改
+        title = '修改地址'
+      } else {
+        // 添加
+        title = '添加地址'
+      }
       wx.navigateBack({
-        delta: 1
+        delta: 1,
+        success: () => {
+          wx.showToast({
+            title,
+          })
+        }
       })
     }
 

@@ -1,0 +1,5 @@
+<!--pages/order/order.wxml-->
+<alert type="notice" closable show-icon>
+  <!-- <image src="../../images/notice.png" slot="icon"></image> -->
+  订单列表仅显示小程序配送订单
+</alert>

@@ -1,0 +1,13 @@
+<!--components/alert/alert.wxml-->
+<view class="alert {{'alert-'+type}} {{showIcon?'alert-with-icon':''}}" wx:if="{{!closed}}">
+    <view wx:if="{{ showIcon }}" class="alert-icon">
+        <image wx:if="{{type == 'notice'}}" src="../../images/notice.png"></image>
+    </view>
+    <slot></slot>
+    <view class="alert-desc">
+        <slot name="desc"></slot>
+    </view>
+    <view class="alert-close" wx:if="{{ closable }}" bindtap="handleTap">
+        <text type="close">×</text>
+    </view>
+</view>

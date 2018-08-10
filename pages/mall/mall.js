@@ -117,6 +117,9 @@ Page({
         }
       })
     } else {
+      that.setData({
+        current_seller: wx.getStorageSync('seller')
+      })
       this.changeBreed()
     }
     this.getRect()

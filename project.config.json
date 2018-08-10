@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -68,7 +68,13 @@
 				{
 					"id": -1,
 					"name": "地址管理",
-					"pathName": "pages/address-list/address-list"
+					"pathName": "pages/address-list/address-list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "配送订单",
+					"pathName": "pages/order/order"
 				}
 			]
 		}

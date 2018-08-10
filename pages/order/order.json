@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "配送订单",
+  "usingComponents": {
+    "alert": "/components/alert/alert"
+  }
+}

@@ -6,7 +6,9 @@
     "pages/my/my",
     "pages/goods/goods",
     "pages/address/address",
-    "pages/address-list/address-list"
+    "pages/address-list/address-list",
+    "pages/order/order",
+    "components/tabs/tabs"
   ],
   "window": {
     "backgroundTextStyle": "light",

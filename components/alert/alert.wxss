@@ -1,0 +1,25 @@
+/* components/alert/alert.wxss */
+.alert{
+  display: flex;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+}
+.alert-notice{
+  background: #fff9e6;
+  color: #EE7942;
+}
+.alert .alert-close{
+  position: absolute;
+  right: 20rpx;
+  top: 5rpx;
+  font-size: 35rpx;
+}
+.alert .alert-icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.alert .alert-icon>image{
+  width: 100%;
+  height: 100%;
+}
