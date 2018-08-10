@@ -17,7 +17,6 @@
 ### 项目截图
 <img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation.gif">
 <img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation2.gif">
-<img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation3.gif">
 <img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation4.gif">
 <img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation5.gif">
 <img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation6.gif">
