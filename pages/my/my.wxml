@@ -42,18 +42,18 @@
   <view class="card order-card">
     <template is="title-icon-navigate" data="{{title: '配送订单', icon: '../../images/order.png', url: '/pages/order/order'}}" />
     <view class="order-flow">
-      <view class="flow-item">
+      <navigator class="flow-item" url="/pages/order/order?current=1" hover-class='none'>
         <image src="../../images/no_pay.png"></image>
         <text>待支付</text>
-      </view>
-      <view class="flow-item">
+      </navigator>
+      <navigator class="flow-item" url="/pages/order/order?current=2" hover-class='none'>
         <image src="../../images/paid.png"></image>
         <text>待配送</text>
-      </view>
-      <view class="flow-item">
+      </navigator>
+      <navigator class="flow-item" url="/pages/order/order?current=3" hover-class='none'>
         <image src="../../images/refund.png"></image>
         <text>退款中</text>
-      </view>
+      </navigator>
     </view>
     <template is="title-icon-navigate" data="{{title: '扫码购订单', icon: '../../images/scan.png', url: ''}}" />
   </view>

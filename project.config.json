@@ -72,9 +72,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "配送订单",
-					"pathName": "pages/order/order"
+					"pathName": "pages/order/order",
+					"query": ""
 				}
 			]
 		}

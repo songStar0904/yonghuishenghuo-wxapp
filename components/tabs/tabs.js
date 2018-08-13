@@ -54,7 +54,6 @@ Component({
     changeCurrent(val = this.data.current) {
       let items = this.getRelationNodes('../tab/tab');
       const len = items.length;
-
       if (len > 0) {
         items.forEach(item => {
           item.changeScroll(this.data.scroll);
