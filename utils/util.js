@@ -76,8 +76,8 @@ const addCart = (item, fn) => {
       check: true
     })
   } else {
-    cart[index].total ++
-    let cart_list = cart[index].list
+    cart[index].total++
+      let cart_list = cart[index].list
     let flag = []
     cart_list instanceof Array && cart_list.forEach((item) => {
       flag.push(item.id)
@@ -119,12 +119,26 @@ const setBadge = () => {
 }
 // 判断对象是否相同
 const diff = (obj1, obj2) => {
-  return JSON.stringify(obj1) === JSON.stringify (obj2)
+  return JSON.stringify(obj1) === JSON.stringify(obj2)
+}
+// 判断是否用户授权
+const hasUserInfo = () => {
+  wx.getSetting({
+    success: res => {
+      if (!res.authSetting['scope.userInfo']) {
+        wx.setStorageSync('prePage', `/${getCurrentPages()[0].route}`)
+        wx.navigateTo({
+          url: '/pages/wxLogin/wxLogin',
+        })
+      }
+    }
+  })
 }
 module.exports = {
   formatTime,
   getLocation,
   addCart,
   setBadge,
-  diff
+  diff,
+  hasUserInfo
 }

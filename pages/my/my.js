@@ -1,6 +1,7 @@
 // pages/my.js
 let {
-  setBadge
+  setBadge,
+  hasUserInfo
 } = require('../../utils/util.js')
 import toUrl from '../../template/title-icon-navigate/title-icon-navigate.js'
 
@@ -65,7 +66,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    hasUserInfo()
   },
 
   /**

@@ -8,9 +8,9 @@ Page({
   data: {
     userInfo: {
       account: '15574406229',
-      nick: 'Sx',
+      nick: wx.getStorageSync('userInfo').nickName,
       birthday: '',
-      sex: 'man',
+      sex: '',
       email: ''
     },
     sex: [{

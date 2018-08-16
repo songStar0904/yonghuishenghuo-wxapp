@@ -1,0 +1,4 @@
+<!--pages/wxLogin/wxLogin.wxml-->
+<view class="weixinlogin">
+    <button form-type="getUserInfo" open-type='getUserInfo' bindgetuserinfo='getUserInfo' hover-class='hover-class'>微信用户授权</button>
+</view>

@@ -8,7 +8,8 @@
     "pages/address/address",
     "pages/address-list/address-list",
     "pages/order/order",
-    "pages/userInfo/userInfo"
+    "pages/userInfo/userInfo",
+    "pages/wxLogin/wxLogin"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -3,7 +3,8 @@ let globalData = getApp().globalData
 let {
   getLocation,
   setBadge,
-  diff
+  diff,
+  hasUserInfo
 } = require('../../utils/util.js')
 let watch = require('../../utils/watch.js')
 Page({
@@ -181,6 +182,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    hasUserInfo()
     this.changeCart()
     if (this.data.cart.length > 0) {
       this.init()
