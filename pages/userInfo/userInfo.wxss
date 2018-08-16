@@ -1,0 +1,52 @@
+/* pages/userInfo/userInfo.wxss */
+.card{
+  padding: 20rpx;
+  margin: 20rpx;
+  border-radius: 8rpx;
+}
+.title{
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 24rpx;
+  color: #555;
+}
+.label{
+  color: #555;
+}
+.user-info input{
+  background: #eee;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+.date-btn{
+  display: flex;
+  align-items: center;
+  padding: 16rpx;
+  border: 1rpx solid #eee;
+  border-radius: 8rpx;
+}
+.date-btn>image{
+  width: 50rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+.section .radio:first-child{
+  margin-right: 20rpx;
+}
+.user-info .btn{
+  height: 70rpx;
+  margin: 20rpx 0;
+  line-height: 70rpx;
+  background: #EE7942;
+  color: #fff;
+  font-size: 30rpx;
+}
+.footer{
+  position: fixed;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+}

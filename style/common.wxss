@@ -46,7 +46,9 @@
 .price{
   color: #EE7942;
 }
-
+.gray{
+  color: #999;
+}
 .bg-hover{
   background: #FFFAF0;
 }

@@ -3,7 +3,7 @@
 <view class="container">
   <!-- 用户信息 -->
   <view class="card user-card">
-    <view class="user-heard">
+    <view class="user-heard" bindtap='toUserInfo'>
       <view class="user-icon">
         <open-data type="userAvatarUrl"></open-data>
       </view>

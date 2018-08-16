@@ -42,6 +42,11 @@ Page({
   },
   // 跳转页面
   toUrl,
+  toUserInfo: function() {
+    wx.navigateTo({
+      url: '/pages/userInfo/userInfo',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -8,7 +8,7 @@
     "pages/address/address",
     "pages/address-list/address-list",
     "pages/order/order",
-    "components/tabs/tabs"
+    "pages/userInfo/userInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

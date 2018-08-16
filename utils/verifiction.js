@@ -15,6 +15,8 @@ const verifiction = function (rules, data) {
         flag = isMax(item.max)
       } else if (item.phone) {
         flag = !isPhone(d)
+      } else if (d && item.email) {
+        flag = !isEmail(d)
       }
       if (flag) {
         showMsg(item.msg)
