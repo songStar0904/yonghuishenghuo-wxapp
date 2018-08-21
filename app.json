@@ -9,7 +9,8 @@
     "pages/address-list/address-list",
     "pages/order/order",
     "pages/userInfo/userInfo",
-    "pages/wxLogin/wxLogin"
+    "pages/wxLogin/wxLogin",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
