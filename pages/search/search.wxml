@@ -6,12 +6,12 @@
 		<icon type="search" color="#999" size="14" class="search-icon icon"/>
 		<icon type="clear" color="#999" size="14" catchtap='clearSearch' class="clear-icon icon" hidden="{{search.length <= 0}}"/>
 	</view>
-		<text class="cancel">取消</text>
+		<text class="cancel" bindtap="cancel">取消</text>
 	</view>
-	<view class="search-hint" hidden="{{search.length <= 0}}">
+	<view class="search-hint" hidden="{{search.length <= 0 || isGetGoods}}">
 		<view class="hint-item" bindtap="getSearch" >搜索“{{search}}”</view>
 	</view>
-	<view class="history" hidden="{{search.length > 0 || history.length <= 0}}">
+	<view class="history" hidden="{{search.length || history.length <= 0}}">
 		<view class="history-head">
 			<text>搜索历史</text>
 			<image class="del" src="../../images/del.png" mode="scaleToFill" bindtap="clearHistory"></image>
@@ -20,4 +20,14 @@
 			<text class="history-item" wx:for="{{history}}" wx:key="{{index}}" bindtap="getSearch" data-search="{{item}}">{{item}}</text>
 		</view>
 	</view>
+	<view class="goods-container" hidden="{{!isGetGoods}}">
+		<goods-item class="goods-item" wx:for="{{goods}}" wx:key="{{index}}" goods="{{item}}" size="" bind:addCart="changeCart"></goods-item>
+	</view>
+	<navigator class="cart-box" hidden="{{!isGetGoods}}" url="/pages/cart/cart" open-type="switchTab">
+		<badge value="{{cartNum}}" class="badge">
+			<view class="cart">
+				<image class="cart-icon" src="../../images/cart_w.png" mode="scaleToFill"></image>
+			</view>
+		</badge>
+	</navigator>
 </view>

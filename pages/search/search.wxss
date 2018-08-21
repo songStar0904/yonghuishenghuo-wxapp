@@ -72,3 +72,27 @@ page{
 	border-radius: 8rpx;
 	border: 1rpx solid #EE7942;
 }
+.goods-container{
+	padding-left: 30rpx;
+}
+.goods-container>.goods-item{
+
+}
+.cart-box{
+	position: fixed;
+	left: 30rpx;
+	bottom: 50rpx;
+}
+.cart{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+	background: #EE7942;
+}
+.cart>.cart-icon{
+	width: 50rpx;
+	height: 50rpx;
+}

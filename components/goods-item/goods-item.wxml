@@ -5,9 +5,10 @@
   <image src="{{goods.icon[0]}}" class="goods-icon"></image>
   <view class="goods-info">
     <text class="goods-name">{{goods.name}}</text>
-    <view class="goods-tab" wx:if="{{goods.tab_price}}">称重补差价</view>
-    <view class="goods-no-tab" wx:else></view>
-    <text class="goods-price">￥{{filter.filterPrice(goods.price)}}</text>
+    <view>
+      <view class="goods-tab" wx:if="{{goods.tab_price}}">称重补差价</view>
+      <text class="goods-price">￥{{filter.filterPrice(goods.price)}}</text>
+    </view>
   </view>
   <view>
     <image src="../../images/add.png" class="add-icon" catchtap='addCart' data-item="{{goods}}"></image>

@@ -1,13 +1,21 @@
 /* components/badge/badge.wxss */
 .badge{
   position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
 }
 .badge>.bot{
   position: absolute;
-  top: -10rpx;
-  right: -15rpx;
-  padding: 0 10rpx;
-  border-radius: 20rpx;
+  transform: translateX(50%);
+  top: -4px;
+  right: 6px;
+  height: 16px;
+  border-radius: 9px;
+  min-width: 16px;
+  border: 1px solid transparent;
+  line-height: 16px;
+  text-align:center;
   background: red;
   color: #fff;
   font-size: 23rpx;

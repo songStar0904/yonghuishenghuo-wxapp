@@ -97,8 +97,8 @@ const addCart = (item, fn) => {
     }
   })
 }
-// 设置购物车小红点
-const setBadge = () => {
+// getCartNum
+const getCartNum = () => {
   let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
   let num = 0
   cart.forEach((item) => {
@@ -106,6 +106,11 @@ const setBadge = () => {
       num += goods.num
     })
   })
+  return num
+}
+// 设置购物车小红点
+const setBadge = () => {
+  let num = getCartNum()
   if (num > 0) {
     wx.setTabBarBadge({
       index: 2,
@@ -140,5 +145,6 @@ module.exports = {
   addCart,
   setBadge,
   diff,
-  hasUserInfo
+  hasUserInfo,
+  getCartNum
 }

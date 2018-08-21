@@ -1,4 +1,6 @@
 // pages/search/search.js
+import getGoods from '../../utils/getGoods.js'
+let {getCartNum} = require('../../utils/util.js')
 Page({
 
   /**
@@ -6,11 +8,17 @@ Page({
    */
   data: {
     search: '',
-    history: wx.getStorageSync('history_search') || []
+    history: wx.getStorageSync('history_search') || [],
+    goods: [],
+    isGetGoods: false,
+    cartNum: 0
   },
   // 监听input
   changeInput: function(e) {
-    this.setSearch(e.detail.value)
+    this.setData({
+      isGetGoods: false,
+      search: e.detail.value
+    })
   },
   // 设置search
   setSearch: function(search) {
@@ -23,6 +31,9 @@ Page({
     this.setSearch('')
   },
   getSearch: function(e) {
+    this.setData({
+        isGetGoods: false
+      })
     let search = e.target.dataset.search
     if (search) {
       this.setSearch(search)
@@ -34,6 +45,11 @@ Page({
       title: '正在搜索...'
     })
     setTimeout(() => {
+      let goods = getGoods()
+      this.setData({
+        goods,
+        isGetGoods: true
+      })
       this.addHistory(search)
       wx.hideLoading()
     }, 500)
@@ -82,13 +98,26 @@ Page({
       }
     })  
   },
+  // 取消搜索
+  cancel: function() {
+    wx.navigateBack()
+  },
+  // 添加购物车
+  changeCart: function() {
+    let cartNum = getCartNum()
+    this.setData({
+      cartNum
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let cartNum = getCartNum()
+    this.setData({
+      cartNum
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -2,7 +2,7 @@
 .item-box{
   display: flex;
   padding: 40rpx 20rpx;
-  margin: 0 20rpx;
+  /*margin: 0 20rpx;*/
   position: relative;
   border-bottom: 1rpx solid #eee;
 }
@@ -19,6 +19,9 @@
   height: 160rpx;
 }
 .item-box .goods-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-left: 40rpx;
   font-size: 28rpx;
   font-weight: 300;
@@ -27,26 +30,17 @@
   margin-left: 30rpx;
   font-size: 25rpx;
 }
-.item-box .goods-no-tab{
-  height: 125rpx;
-}
-.item-box.small .goods-no-tab{
-  height: 85rpx;
-}
 .item-box .goods-tab{
   width: 100rpx;
   padding: 5rpx;
-  margin: 80rpx 0 5rpx;
   font-size: 20rpx;
   color: #63B8FF;
   border: 3rpx solid #63B8FF;
   border-radius: 5rpx;
 }
-.item-box.small .goods-tab{
-  margin-top: 50rpx;
-}
 .item-box .goods-price{
   display: block;
+  margin-top: 5rpx;
   color: #EE7942;
 }
 .add-icon{

@@ -1,6 +1,6 @@
 // pages/mall/mall.js
 var globalData = getApp().globalData
-let goodsData = require('../../libs/goodsData.js')
+let getGoods = require('../../utils/getGoods.js')
 let sellerData = require('../../libs/sellerData.js')
 let {
   getLocation,
@@ -137,6 +137,12 @@ Page({
       }
     })
   },
+  // 跳转搜索
+  toSearch: function() {
+    wx.navigateTo({
+      url: '/pages/search/search'
+    })
+  },
   // 添加购物车
   changeCart: function(cart) {
     setBadge()
@@ -147,21 +153,13 @@ Page({
       title: '拼命加载中...',
     })
     let that = this
-    let goods = this.randomGoods()
     setTimeout(() => {
+      let goods = getGoods()
       that.setData({
         goods
       })
       wx.hideLoading()
     }, 500)
-  },
-  // 随机生商品
-  randomGoods: function() {
-    let goods = []
-    for (let i = 0; i < Math.random() * 10; i++) {
-      goods.push(goodsData[Math.random() > 0.5 ? 0 : 1]);
-    }
-    return goods
   },
   // 开关商家列表
   openSeller: function() {
