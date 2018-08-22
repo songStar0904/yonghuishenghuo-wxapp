@@ -2,6 +2,7 @@
 let globalData = getApp().globalData
 let {
   getLocation,
+  getUserLocation,
   setBadge,
   diff,
   hasUserInfo
@@ -32,18 +33,25 @@ Page({
         })
       }
     })
+    this.getLocation()
+  },
+  // 获取地理位置
+  getLocation: function() {
     if (globalData.address) {
       this.setData({
         address: globalData.address
       })
     } else {
-      getLocation().then((address) => {
-        this.setData({
-          address
+      let that = this
+      getUserLocation().then((userLocation) => {
+        userLocation && getLocation().then(address => {
+          that.setData({
+            userLocation,
+            address
+          })
         })
       })
     }
-
   },
   // 流程
   init: function() {
@@ -166,7 +174,7 @@ Page({
     // console.log(this.data.cart[1].totalMoney)
   },
   // 跳转mall页面
-  toMall: function () {
+  toMall: function() {
     wx.switchTab({
       url: '/pages/mall/mall'
     })
@@ -182,6 +190,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    this.getLocation()
     hasUserInfo()
     this.changeCart()
     if (this.data.cart.length > 0) {

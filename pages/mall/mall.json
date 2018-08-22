@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "配送到家",
   "usingComponents": {
-    "goods-item": "/components/goods-item/goods-item"
+    "goods-item": "/components/goods-item/goods-item",
+    "open-setting": "/components/open-setting/open-setting"
   }
 }

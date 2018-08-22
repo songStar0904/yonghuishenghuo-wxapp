@@ -1,0 +1,33 @@
+/* components/open-setting/open-setting.wxss */
+page{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 26rpx;
+}
+.no_location{
+	width: 200rpx;
+	height: 180rpx;
+}
+.gray{
+	color: #999;
+	margin-top: 50rpx;
+}
+.open-setting-btn{
+	padding: 0 60rpx;
+	margin: 80rpx 0;
+	background: #eee;
+	border: 1rpx solid #EE7942;
+	color: #EE7942;
+	font-size: 30rpx;
+}
+.price{
+	color: #EE7942;
+}

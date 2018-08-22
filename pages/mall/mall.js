@@ -4,6 +4,7 @@ let getGoods = require('../../utils/getGoods.js')
 let sellerData = require('../../libs/sellerData.js')
 let {
   getLocation,
+  getUserLocation,
   setBadge
 } = require('../../utils/util.js')
 Page({
@@ -12,6 +13,7 @@ Page({
    */
   data: {
     address: '定位中...',
+    userLocation: false,
     seller: sellerData,
     current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
@@ -90,9 +92,9 @@ Page({
     top: 0 // 下拉高度
   },
   // 获得seller-list高度
-  getRect: function () {
+  getRect: function() {
     let that = this
-    wx.createSelectorQuery().select('.seller-list').boundingClientRect(function (rect) {
+    wx.createSelectorQuery().select('.seller-list').boundingClientRect(function(rect) {
       that.setData({
         top: rect.height
       })
@@ -122,19 +124,19 @@ Page({
       })
       this.changeBreed()
     }
-    this.getRect()
-    wx.authorize({
-      scope: 'scope.userLocation',
-      success: (res) => {
-        getLocation().then(address => {
-          that.setData({
-            address
-          })
+    this.getLocation()
+  },
+  // 获得地理位置
+  getLocation: function() {
+    let that = this
+    getUserLocation().then((userLocation) => {
+      getLocation().then(address => {
+        that.setData({
+          address,
+          userLocation
         })
-      },
-      fail: (res) => {
-        console.log(res)
-      }
+        this.data.userLocation && this.getRect()
+      })
     })
   },
   // 跳转搜索
@@ -215,7 +217,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.getLocation()
   },
 
   /**

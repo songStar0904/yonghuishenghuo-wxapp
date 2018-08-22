@@ -7,6 +7,7 @@ App({
   globalData: {
     address: '',
     userinfo: null,
+    userLocation: false,
     cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : [],
     seller: {}
   },

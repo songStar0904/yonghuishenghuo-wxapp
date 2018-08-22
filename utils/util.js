@@ -21,6 +21,16 @@ const formateAddress = (data) => {
   }
   return data
 }
+// 获得位置授权
+const getUserLocation = () => {
+  return new Promise(function(resolve, reject) {
+    wx.getSetting({
+        success: res => {
+          resolve(res.authSetting['scope.userLocation'] ? true : false)
+        }
+    })
+  })
+}
 // 获得地址
 const getLocation = () => {
   return new Promise(function(resolve, reject) {
@@ -47,12 +57,14 @@ const getLocation = () => {
             resolve(data)
           },
           fail: (res) => {
+            wx.hideLoading()
             console.log(res)
           }
         })
       },
       fail: function(res) {
         console.log(res)
+        wx.hideLoading()
       }
     })
   })
@@ -141,6 +153,7 @@ const hasUserInfo = () => {
 }
 module.exports = {
   formatTime,
+  getUserLocation,
   getLocation,
   addCart,
   setBadge,

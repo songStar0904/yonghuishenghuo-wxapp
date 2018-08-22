@@ -1,0 +1,8 @@
+<!--components/open-setting/open-setting.wxml-->
+<view class="container">
+	<image class="no_location" src="../../images/no_location.png" mode="scaleToFill"></image>
+	<text class="gray">获取地理位置失败</text>
+	<button open-type="openSetting" bindopensetting="openSetting" class="open-setting-btn">开启定位</button>
+	<text class="price">若小程序定位已开启</text>
+	<text class="price">请检查微信定位服务是否开启</text>
+</view>

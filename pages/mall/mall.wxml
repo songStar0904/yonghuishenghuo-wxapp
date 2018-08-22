@@ -1,6 +1,7 @@
 <!--pages/mall/mall.wxml-->
 <wxs module="filter" src="../../utils/filter.wxs"></wxs>
-<view class="container">
+<open-setting wx:if="{{!userLocation}}"></open-setting>
+<view class="container" wx:else>
   <!-- 头部定位和搜索 -->
   <view class="mall-heard">
     <view class="heard-left">
