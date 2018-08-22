@@ -21,7 +21,6 @@
 <img src="https://github.com/songStar0904/yonghuishenghuo-wxapp/blob/master/readme_img/Animation4.gif">
 
 ### Tips
-由于微信小程序大小限制在2M，下载后请去掉`readme_img文件`在运行
 
 微信: songStar__ 
 
