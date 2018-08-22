@@ -144,7 +144,7 @@ const hasUserInfo = () => {
     success: res => {
       if (!res.authSetting['scope.userInfo']) {
         wx.setStorageSync('prePage', `/${getCurrentPages()[0].route}`)
-        wx.navigateTo({
+        wx.reLaunch({
           url: '/pages/wxLogin/wxLogin',
         })
       }
