@@ -13,7 +13,7 @@ Page({
    */
   data: {
     address: '定位中...',
-    userLocation: false,
+    userLocation: true,
     seller: sellerData,
     current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
@@ -124,7 +124,6 @@ Page({
       })
       this.changeBreed()
     }
-    this.getLocation()
   },
   // 获得地理位置
   getLocation: function() {
@@ -133,9 +132,13 @@ Page({
       getLocation().then(address => {
         that.setData({
           address,
-          userLocation
+          userLocation: true
         })
-        this.data.userLocation && this.getRect()
+        this.getRect()
+      }).catch(res => {
+        that.setData({
+          userLocation: false
+        })
       })
     })
   },
@@ -177,11 +180,12 @@ Page({
     })
 
     // wx.setStorageSync('seller', breed[0])
+    let current_breed_list = breed[0].list
     this.setData({
-      current_breed_list: breed[0].list
+      current_breed_list
     })
     this.setData({
-      current_breed: this.data.current_breed_list[0]
+      current_breed: current_breed_list[0]
     })
     this.getGoods()
   },
