@@ -65,6 +65,7 @@ const getLocation = () => {
       fail: function(res) {
         console.log(res)
         wx.hideLoading()
+        reject(res)
       }
     })
   })
