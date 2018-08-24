@@ -37,14 +37,25 @@ Component({
     //   }).exec()
     // },
     // 开关商家列表
-    openSeller: function () {
+    openSeller: function() {
       this.setData({
         open_seller_list: !this.data.open_seller_list
       })
     },
+    // 关闭list
+    closeList: function() {
+      this.setData({
+        open_seller_list: false
+      })
+    },
     // 选择商家
-    selectSeller: function (e) {
+    selectSeller: function(e) {
       let current_seller = e.currentTarget.dataset.item
+      // 点击原商家 只关闭list
+      if (current_seller.id === this.data.current_seller.id) {
+        this.closeList()
+        return
+      }
       wx.setStorage({
         key: 'seller',
         data: current_seller

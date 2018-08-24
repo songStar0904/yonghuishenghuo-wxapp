@@ -6,6 +6,7 @@
   align-items: center;
   position: relative;
   padding: 10rpx 20rpx;
+  margin-top: -1rpx; /* 真机上会有1rpx的间隔，还不知道为什么。 */
   font-size: 25rpx;
   border-bottom: 1rpx solid #eee;
   z-index: 1002;
@@ -36,13 +37,15 @@
   left: 0;
   width: 100%;
   background: #fff;
-  transform:translateY(-100%);
+  transform: translateY(-100%);
   transition: ease-in-out 0.5s all;
   z-index: 1000;
 }
-.seller-list.seller-show{
-  transform:translateY(0);
+
+.seller-list.seller-show {
+  transform: translateY(0);
 }
+
 .seller-list .seller-item {
   display: flex;
   flex-direction: row;
@@ -70,6 +73,7 @@
   position: absolute;
   right: 20rpx;
 }
+
 .mask {
   position: absolute;
   top: 0;
@@ -78,4 +82,10 @@
   right: 0;
   background-color: rgba(55, 55, 55, 0.6);
   z-index: 999;
+  opacity: 0;
+  transition: all ease 0.5s;
+}
+
+.mask.show {
+  opacity: 1;
 }

@@ -3,8 +3,8 @@
 	<view class="search">
 	<view class="search-input">
 		<input value="{{search}}" placeholder="请输入商品名称" confirm-type="search" bindinput='changeInput'></input>
-		<icon type="search" color="#999" size="14" class="search-icon icon"/>
-		<icon type="clear" color="#999" size="14" catchtap='clearSearch' class="clear-icon icon" hidden="{{search.length <= 0}}"/>
+		<icon type="search" color="#999" size="15" class="search-icon icon"/>
+		<icon type="clear" color="#999" size="15" catchtap='clearSearch' class="clear-icon icon" hidden="{{search.length <= 0}}"/>
 	</view>
 		<text class="cancel" bindtap="cancel">取消</text>
 	</view>

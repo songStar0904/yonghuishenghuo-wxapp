@@ -134,13 +134,13 @@ Page({
         key: 'seller',
         data: this.data.seller[0],
         success: (res) => {
-          that.setData({
+          this.setData({
             current_seller: wx.getStorageSync('seller')
           })
         }
       })
     } else {
-      that.setData({
+      this.setData({
         current_seller: wx.getStorageSync('seller')
       })
     }
