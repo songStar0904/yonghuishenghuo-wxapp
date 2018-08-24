@@ -87,43 +87,13 @@ Page({
         name: '缤纷美食'
       }]
     }],
-    open_seller_list: false,
-    goods: [],
-    top: 0 // 下拉高度
-  },
-  // 获得seller-list高度
-  getRect: function() {
-    let that = this
-    wx.createSelectorQuery().select('.seller-list').boundingClientRect(function(rect) {
-      that.setData({
-        top: rect.height
-      })
-      // console.log(that.data.top)
-    }).exec()
-
+    goods: []
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this
-    if (wx.getStorageSync('seller') == '') {
-      wx.setStorage({
-        key: 'seller',
-        data: this.data.seller[0],
-        success: (res) => {
-          that.setData({
-            current_seller: wx.getStorageSync('seller')
-          })
-          this.changeBreed()
-        }
-      })
-    } else {
-      that.setData({
-        current_seller: wx.getStorageSync('seller')
-      })
-      this.changeBreed()
-    }
+    
   },
   // 获得地理位置
   getLocation: function() {
@@ -134,7 +104,24 @@ Page({
           address,
           userLocation: true
         })
-        this.getRect()
+        // 设置选择的商家
+        if (wx.getStorageSync('seller') == '') {
+          wx.setStorage({
+            key: 'seller',
+            data: this.data.seller[0],
+            success: (res) => {
+              that.setData({
+                current_seller: wx.getStorageSync('seller')
+              })
+              this.changeBreed()
+            }
+          })
+        } else {
+          that.setData({
+            current_seller: wx.getStorageSync('seller')
+          })
+          this.changeBreed()
+        }
       }).catch(res => {
         that.setData({
           userLocation: false
@@ -166,12 +153,6 @@ Page({
       wx.hideLoading()
     }, 500)
   },
-  // 开关商家列表
-  openSeller: function() {
-    this.setData({
-      open_seller_list: !this.data.open_seller_list
-    })
-  },
   // 改变品种
   changeBreed: function() {
     console.log(this.data.current_seller.id)
@@ -198,14 +179,9 @@ Page({
     this.getGoods()
   },
   // 选择商家
-  selectSeller: function(e) {
-    wx.setStorage({
-      key: 'seller',
-      data: e.currentTarget.dataset.item
-    })
+  changeSeller: function(e) {
     this.setData({
-      open_seller_list: false,
-      current_seller: e.currentTarget.dataset.item
+      current_seller: e.detail
     })
     this.changeBreed()
   },

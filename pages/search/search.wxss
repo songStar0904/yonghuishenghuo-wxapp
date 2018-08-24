@@ -5,10 +5,13 @@ page{
 .search{
 	display: flex;
 	justify-content: space-between;
+  position:relative;
+  background:#fff;
 	padding: 10rpx 30rpx;
 	color: #666;
 	font-size: 28rpx;
 	border-bottom: 1rpx solid #eee;
+  z-index: 1001;
 }
 .search>.search-input{
 	flex-grow: 1;

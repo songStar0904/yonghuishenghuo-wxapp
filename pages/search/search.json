@@ -2,6 +2,7 @@
 	"navigationBarTitleText": "搜索",
 	"usingComponents": {
 	  "goods-item": "/components/goods-item/goods-item",
+    "seller-box": "/components/seller-box/seller-box",
 	  "badge": "/components/badge/badge"
 	}
 }

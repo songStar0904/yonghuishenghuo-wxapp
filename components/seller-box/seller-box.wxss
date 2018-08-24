@@ -1,0 +1,81 @@
+/* components/seller-box/seller-box.wxss */
+
+.seller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 10rpx 20rpx;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid #eee;
+  z-index: 1002;
+  background: #fff;
+}
+
+.seller>.seller-icon {
+  margin-left: 33.33%;
+}
+
+.seller-icon image {
+  width: 160rpx;
+  height: 50rpx;
+}
+
+.seller .arrow {
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(90deg);
+}
+
+.seller-box {
+  position: relative;
+}
+
+.seller-list {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  transform:translateY(-100%);
+  transition: ease-in-out 0.5s all;
+  z-index: 1000;
+}
+.seller-list.seller-show{
+  transform:translateY(0);
+}
+.seller-list .seller-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  height: 140rpx;
+  margin-left: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.seller-list .seller-item:last-child {
+  border: none;
+}
+
+.seller-item .seller-icon {
+  margin-right: 40rpx;
+}
+
+.seller-item .seller-text {
+  color: #616161;
+  font-size: 23rpx;
+}
+
+.seller-item .selected {
+  position: absolute;
+  right: 20rpx;
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(55, 55, 55, 0.6);
+  z-index: 999;
+}

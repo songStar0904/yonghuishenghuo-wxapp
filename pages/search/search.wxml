@@ -20,9 +20,15 @@
 			<text class="history-item" wx:for="{{history}}" wx:key="{{index}}" bindtap="getSearch" data-search="{{item}}">{{item}}</text>
 		</view>
 	</view>
-	<view class="goods-container" hidden="{{!isGetGoods}}">
+  <view hidden="{{!isGetGoods}}">
+  <!-- 商家box -->
+  <seller-box seller="{{seller}}" current_seller="{{current_seller}}" bindchangeSeller="changeSeller"></seller-box>
+ 
+	<view class="goods-container" >
+   
 		<goods-item class="goods-item" wx:for="{{goods}}" wx:key="{{index}}" goods="{{item}}" size="" bind:addCart="changeCart"></goods-item>
 	</view>
+   </view>
 	<navigator class="cart-box" hidden="{{!isGetGoods}}" url="/pages/cart/cart" open-type="switchTab">
 		<badge value="{{cartNum}}" class="badge">
 			<view class="cart">

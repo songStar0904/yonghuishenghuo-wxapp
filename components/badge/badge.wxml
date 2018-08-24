@@ -1,5 +1,5 @@
 <!--components/badge/badge.wxml-->
 <view class="badge">
   <slot></slot>
-  <text class="bot" style="background: {{color}}">{{value}}</text>
+  <text class="bot" style="background: {{color}}" hidden="{{value <= 0}}">{{value}}</text>
 </view>

@@ -1,6 +1,7 @@
 // pages/search/search.js
 import getGoods from '../../utils/getGoods.js'
 let {getCartNum} = require('../../utils/util.js')
+let sellerData = require('../../libs/sellerData.js')
 Page({
 
   /**
@@ -11,7 +12,9 @@ Page({
     history: wx.getStorageSync('history_search') || [],
     goods: [],
     isGetGoods: false,
-    cartNum: 0
+    cartNum: 0,
+    seller: sellerData,
+    current_seller: wx.getStorageSync('seller')
   },
   // 监听input
   changeInput: function(e) {
@@ -32,14 +35,16 @@ Page({
   },
   getSearch: function(e) {
     this.setData({
-        isGetGoods: false
-      })
-    let search = e.target.dataset.search
-    if (search) {
-      this.setSearch(search)
-    } else {
-      search = this.data.search
-    }
+      isGetGoods: false
+    })
+    let search = e ? e.target.dataset.search : this.data.search
+    this.setSearch(search)
+    this.getGoods()
+  },
+  // 获得商品
+  getGoods: function() {
+    let search = this.data.search
+    let current_seller = this.data.current_seller
     // request
     wx.showLoading({
       title: '正在搜索...'
@@ -109,6 +114,12 @@ Page({
       cartNum
     })
   },
+  changeSeller: function(e) {
+    this.setData({
+      current_seller: e.detail
+    })
+    this.getGoods()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -117,6 +128,22 @@ Page({
     this.setData({
       cartNum
     })
+    // 设置选择的商家
+    if (wx.getStorageSync('seller') == '') {
+      wx.setStorage({
+        key: 'seller',
+        data: this.data.seller[0],
+        success: (res) => {
+          that.setData({
+            current_seller: wx.getStorageSync('seller')
+          })
+        }
+      })
+    } else {
+      that.setData({
+        current_seller: wx.getStorageSync('seller')
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
