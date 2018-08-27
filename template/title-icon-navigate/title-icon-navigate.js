@@ -1,8 +1,13 @@
-const toUrl = function(e) {
-  let url = e.currentTarget.dataset.url
-  url && wx.navigateTo({
-    url,
+const tap = function(e) {
+  let dataset = e.currentTarget.dataset
+  let key = Object.keys(dataset)
+  let data = dataset[Object.keys(dataset)]
+  key == 'url' && wx.navigateTo({
+    url: data,
+  })
+  key == 'phone' && wx.makePhoneCall({
+    phoneNumber: data,
   })
 }
 
-export default toUrl;
+export default tap;

@@ -3,7 +3,7 @@ let {
   setBadge,
   hasUserInfo
 } = require('../../utils/util.js')
-import toUrl from '../../template/title-icon-navigate/title-icon-navigate.js'
+import tap from '../../template/title-icon-navigate/title-icon-navigate.js'
 
 Page({
 
@@ -18,21 +18,18 @@ Page({
     }, {
       title: '联系客服',
       icon: '../../images/hot_line.png',
-      url: '',
+      phone: '15574406229',
       note: "服务时间：9：00-20：00"
     }, {
       title: '意见反馈',
       icon: '../../images/feedback.png',
-      url: ''
     }, {
       title: '永辉生活APP',
       icon: '../../images/download.png',
-      url: '',
       note: '下载享优质购物体验'
     }, {
       title: '版本号',
       icon: '../../images/version.png',
-      url: '',
       note: '永辉生活小程序 V4.17.0.3',
       no_arrow: true
     }]
@@ -42,7 +39,7 @@ Page({
     setBadge()
   },
   // 跳转页面
-  toUrl,
+  tap,
   toUserInfo: function() {
     wx.navigateTo({
       url: '/pages/userInfo/userInfo',

@@ -1,6 +1,6 @@
 <!--components/title-icon-navigate/title-icon-navigate.wxml-->
 <template name="title-icon-navigate">
-    <view class="tin-box" bindtap='toUrl' data-url="{{url}}">
+    <view class="tin-box" bindtap='tap' data-url="{{url}}" data-phone="{{phone}}">
       <view class="tin-left">
         <image src="{{icon}}" class="icon"></image>
         <text class="title">{{title}}</text>
