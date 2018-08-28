@@ -14,15 +14,18 @@ Page({
     setData: [{
       title: '地址管理',
       icon: '../../images/address.png',
-      url: '/pages/address-list/address-list'
+      type: 'url',
+      data: '/pages/address-list/address-list'
     }, {
       title: '联系客服',
       icon: '../../images/hot_line.png',
-      phone: '15574406229',
+      type: 'phone',
+      data: '15574406229',
       note: "服务时间：9：00-20：00"
     }, {
       title: '意见反馈',
       icon: '../../images/feedback.png',
+      type: 'feedback'
     }, {
       title: '永辉生活APP',
       icon: '../../images/download.png',

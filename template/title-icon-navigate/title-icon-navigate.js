@@ -1,11 +1,15 @@
 const tap = function(e) {
   let dataset = e.currentTarget.dataset
-  let key = Object.keys(dataset)
-  let data = dataset[Object.keys(dataset)]
-  key == 'url' && wx.navigateTo({
+  let data = dataset.data
+  let type = dataset.type
+  console.log(dataset)
+  if (!type) {
+    return
+  } 
+  type == 'url' && wx.navigateTo({
     url: data,
   })
-  key == 'phone' && wx.makePhoneCall({
+  type == 'phone' && wx.makePhoneCall({
     phoneNumber: data,
   })
 }

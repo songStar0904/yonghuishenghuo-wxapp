@@ -1,14 +1,25 @@
 <!--components/title-icon-navigate/title-icon-navigate.wxml-->
 <template name="title-icon-navigate">
-    <view class="tin-box" bindtap='tap' data-url="{{url}}" data-phone="{{phone}}">
+    <view class="tin-box" bindtap='tap' data-data="{{data}}" data-type="{{type}}" wx:if="{{type !== 'feedback'}}">
       <view class="tin-left">
         <image src="{{icon}}" class="icon"></image>
         <text class="title">{{title}}</text>
       </view>
       <view class="tin-right">
         <text wx:if="{{note}}" class="note">{{note}}</text>
-
         <image src="../../images/arrow_r.png" class="arrow" wx:if="{{!no_arrow}}"></image>
       </view>
     </view>
+    <button open-type='feedback' class="feedback no-class" wx:else>
+    <view class="tin-box">
+      <view class="tin-left">
+        <image src="{{icon}}" class="icon"></image>
+        <text class="title">{{title}}</text>
+      </view>
+      <view class="tin-right">
+        <text wx:if="{{note}}" class="note">{{note}}</text>
+        <image src="../../images/arrow_r.png" class="arrow" wx:if="{{!no_arrow}}"></image>
+      </view>
+    </view>
+    </button>
 </template>

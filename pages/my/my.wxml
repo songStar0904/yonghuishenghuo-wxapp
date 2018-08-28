@@ -60,7 +60,7 @@
   <!-- 管理设置 -->
   <view class="card set-card">
     <view class="set-item" wx:for="{{setData}}" wx:key="index">
-      <template is="title-icon-navigate" data="{{title: item.title, icon: item.icon, url: item.url,phone: item.phone, note: item.note, no_arrow: item.no_arrow}}"/>
+      <template is="title-icon-navigate" data="{{title: item.title, icon: item.icon, type: item.type, data: item.data, note: item.note, no_arrow: item.no_arrow}}"/>
     </view>
   </view>
   <!-- 推荐 -->

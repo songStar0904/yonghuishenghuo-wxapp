@@ -26,3 +26,11 @@
   color: #707070;
   margin-right: 10rpx;
 }
+.feedback.no-class{
+  background: #fff;
+  padding: 0;
+  line-height: 0;
+}
+.feedback.no-class::after{
+  border: none;
+}
