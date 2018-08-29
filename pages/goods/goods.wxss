@@ -155,3 +155,40 @@
   margin-top: 10rpx;
   border-bottom: none;
 }
+.share-card-box{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color:rgba(55, 55, 55, 0.6);
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+.share-card-box>.content>.share-image{
+  width: 550rpx;
+  height: 900rpx;
+  margin-bottom: 50rpx;
+}
+.share-card-box>.content>.btn-group{
+  display: flex;
+  justify-content: space-between;
+}
+.share-card-box>.content>.btn-group>.btn{
+  width: 240rpx;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+.share-card-box>.content>.btn-group>.cancel{
+  background: #fff;
+}
+.share-card-box>.content>.btn-group>.save{
+  color: #fff;
+  background: #EE7942;
+}

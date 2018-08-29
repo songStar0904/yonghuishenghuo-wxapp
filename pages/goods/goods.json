@@ -2,6 +2,7 @@
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
     "tab-bar": "/components/tab-bar/tab-bar",
-    "my-action-sheet": "/components/my-action-sheet/my-action-sheet"
+    "my-action-sheet": "/components/my-action-sheet/my-action-sheet",
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
   }
 }

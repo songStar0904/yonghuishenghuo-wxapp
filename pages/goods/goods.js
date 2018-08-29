@@ -9,7 +9,12 @@ Page({
     goods: {},
     gid: 0,
     showTab: false,
-    showShare: false
+    showShare: false,
+    shareImage: null, //分享卡片
+    showCard: false,
+    wechat: '../../images/wechat.jpg', //小程序码
+    cardWidth: 275,
+    imgWidth: 175
   },
 
   /**
@@ -23,6 +28,7 @@ Page({
       withShareTicket: true
     })
    this.getGoods()
+    this.eventDraw()
   },
   // 获得商品详情
   getGoods: function (){
@@ -41,10 +47,120 @@ Page({
       showShare: true
     })
   },
+  // 关闭转发
   closeShare: function() {
     this.setData({
       showShare: false
     })
+  },
+  // 关闭转发卡片
+  closeShareCard: function() {
+    this.setData({
+      showCard: false
+    })
+  },
+  // 生成转发卡片
+  eventDraw: function() {
+    wx.showLoading({
+      title: '生成中',
+      mask: true
+    })
+    let { goods, cardWidth, imgWidth} = this.data
+    this.setData({
+      showShare: false,
+      painting: {
+        width: cardWidth,
+        height: 450,
+        views: [
+          {
+            type: 'rect',
+            background: '#fff',
+            top: 0,
+            left: 0,
+            width: cardWidth,
+            height: 450
+          },
+          {
+            type: 'image',
+            url: goods.icon[0],
+            left: (cardWidth - imgWidth) / 2,
+            top: 30,
+            width: imgWidth,
+            height: 150
+          },
+          {
+            type: 'text',
+            content: goods.name,
+            textAlign: 'center',
+            top: 200,
+            left: cardWidth / 2
+          },
+          {
+            type: 'text',
+            content: `￥${goods.price}`,
+            textAlign: 'center',
+            top: 230,
+            left: cardWidth / 2,
+            color: '#EE7942'
+          },
+          {
+            type: 'image',
+            url: this.data.wechat,
+            left: (cardWidth - 75) / 2,
+            top: 290,
+            width: 75,
+            height: 75
+          },
+          {
+            type: 'text',
+            content: '长按图片识别小程序码',
+            fontSize: 14,
+            textAlign: 'center',
+            top: 390,
+            left: cardWidth / 2
+          },
+          {
+            type: 'text',
+            content: '*实际价格以页面展示为准',
+            color: '#80848f',
+            fontSize: 11,
+            textAlign: 'center',
+            top: 415,
+            left: cardWidth / 2
+          },
+        ]
+      }
+    })
+  },
+  eventSave() {
+    let that = this
+    wx.saveImageToPhotosAlbum({
+      filePath: this.data.shareImage,
+      success(res) {
+        that.closeShareCard()
+        wx.showToast({
+          title: '保存图片成功',
+          icon: 'success',
+          duration: 2000
+        })
+      }
+    })
+  },
+  eventGetImage(event) {
+    console.log(event)
+    console.log(this.data.painting)
+    wx.hideLoading()
+    const { tempFilePath, errMsg } = event.detail
+    if (errMsg === 'canvasdrawer:ok') {
+      this.setData({
+        shareImage: tempFilePath,
+        showCard: true
+      })
+    } else {
+      this.setData({
+        showCard: true
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -63,7 +63,18 @@
 <my-action-sheet bindchange="actionSheetbindchange" showSheet="{{showShare}}">
   <view class="share-box">
     <button class="share-btn" open-type="share">分享给朋友</button>
-    <view class="share-card">生成卡片并分享</view>
+    <view class="share-card" bindtap='eventDraw'>生成卡片并分享</view>
     <view class="share-cancel" bindtap='closeShare'>取消</view>
   </view>
 </my-action-sheet>
+<canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
+<view class="share-card-box" hidden='{{!showCard}}'>
+  <view class="content">
+    <image src="{{shareImage}}" class="share-image"></image>
+    <view class="btn-group">
+      <text class="btn cancel" bindtap='closeShareCard'>取消</text>
+      <text class="btn save" bindtap='eventSave'>保存到相册</text>
+    </view>
+  </view>
+  
+</view>
