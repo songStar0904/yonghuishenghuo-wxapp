@@ -1,10 +1,12 @@
 {
 	"description": "项目配置文件。",
 	"packOptions": {
-		"ignore": [{
-      "type": "folder",
-      "value": "readme_img"
-    }]
+		"ignore": [
+			{
+				"type": "folder",
+				"value": "readme_img"
+			}
+		]
 	},
 	"setting": {
 		"urlCheck": true,
@@ -36,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -60,7 +62,8 @@
 					"id": 3,
 					"name": "商品详情",
 					"pathName": "pages/goods/goods",
-					"query": "id=1"
+					"query": "id=1",
+					"scene": "1001"
 				},
 				{
 					"id": -1,
@@ -95,7 +98,8 @@
 				{
 					"id": -1,
 					"name": "搜索",
-					"pathName": "pages/search/search"
+					"pathName": "pages/search/search",
+					"query": ""
 				}
 			]
 		}

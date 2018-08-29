@@ -14,7 +14,7 @@
     <view class="card address-info">
       <view class="section" bindtap='showSheet'>
         <view class="label">所在城市</view>
-        <input placeholder-class placeholder="请选择城市" name="city" maxlength='5' value='{{address.city}}' disabled="true" ></input>
+        <input placeholder-class placeholder="请选择城市" name="city" maxlength='5' value='{{address.city}}' disabled="true"></input>
         <image src="../../images/arrow_r.png" class="arrow"></image>
       </view>
       <view class="section">
@@ -38,13 +38,12 @@
     </view>
     <button formType="submit" class="submit">保存收货地址</button>
   </form>
-  <modal  hidden="{{!showModal}}" bindcancel="onModalCancel" bindconfirm="onModalConfirm">
+  <modal hidden="{{!showModal}}" bindcancel="onModalCancel" bindconfirm="onModalConfirm">
     <view>
       <input class="input" value="{{newTag}}" placeholder="自定义标签(最多4个中文字符)" bindinput="setNewTag"></input>
     </view>
   </modal>
- <my-action-sheet bindchange="actionSheetbindchange" showSheet="{{showSheet}}">
- 
-    <city-list data="{{city}}" my-city="{{address.city}}" binddetail="selectCity" ></city-list>
-</my-action-sheet>
+  <my-action-sheet bindchange="actionSheetbindchange" showSheet="{{showSheet}}" heard="{{true}}" title="选择选择城市">
+    <city-list data="{{city}}" my-city="{{address.city}}" binddetail="selectCity"></city-list>
+  </my-action-sheet>
 </view>

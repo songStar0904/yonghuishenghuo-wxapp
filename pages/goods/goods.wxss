@@ -82,11 +82,14 @@
   height: 40rpx;
 }
 .ticket>.get-ticket{
+  display: flex;
+  align-items: center;
   font-size: 26rpx;
 }
 .ticket>.get-ticket>image{
   width: 30rpx;
   height: 30rpx;
+  margin-left: 5rpx;
 }
 .seller{
   padding-top: 20rpx;
@@ -130,4 +133,25 @@
 }
 .detail-icon>image{
   width: 100%;
+}
+.share-box{
+  background: #f8f8f9;
+}
+.share-btn,.share-card,.share-cancel{
+  text-align: center;
+  padding: 25rpx 0;
+  border-bottom: 1rpx solid #eee;
+  background: #fff;
+  font-size: 30rpx;
+}
+.share-btn{
+  line-height: 1;
+  border-radius: 0;
+}
+.share-btn::after{
+  border: none;
+}
+.share-cancel{
+  margin-top: 10rpx;
+  border-bottom: none;
 }

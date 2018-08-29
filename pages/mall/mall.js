@@ -13,7 +13,7 @@ Page({
    */
   data: {
     address: '定位中...',
-    userLocation: true,
+    userLocation: false,
     seller: sellerData,
     current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
@@ -197,7 +197,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getLocation()
+    if (!this.data.userLocation) {
+      this.getLocation()
+    }
   },
 
   /**

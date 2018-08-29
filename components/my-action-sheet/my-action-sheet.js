@@ -8,6 +8,14 @@ Component({
     showSheet: {
       type: Boolean,
       value: true
+    },
+    title: {
+      type: String,
+      value: ''
+    },
+    heard: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -39,15 +47,15 @@ Component({
       /* 动画部分 */
       // 第1步：创建动画实例 
       var animation = wx.createAnimation({
-        duration: 300, //动画时长
-        timingFunction: "ease-in-out", //线性
+        duration: 500, //动画时长
+        timingFunction: "ease", //线性
         delay: 0 //0则不延迟
       });
       // 第2步：这个动画实例赋给当前的动画实例
       this.animation = animation;
 
       // 第3步：执行第一组动画：Y轴偏移240px后(盒子高度是240px)，停
-      animation.translateY(600).step();
+      animation.translateY('100%').step();
 
       // 第4步：导出动画对象赋给数据对象储存
       this.setData({
@@ -63,7 +71,7 @@ Component({
         })
 
     
-      }.bind(this), 200)
+      }.bind(this), 10)
 
       
     }

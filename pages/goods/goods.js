@@ -8,7 +8,8 @@ Page({
   data: {
     goods: {},
     gid: 0,
-    showTab: false
+    showTab: false,
+    showShare: false
   },
 
   /**
@@ -17,6 +18,9 @@ Page({
   onLoad: function (options) {
     this.setData({
       gid: this.options.id
+    })
+    wx.showShareMenu({
+      withShareTicket: true
     })
    this.getGoods()
   },
@@ -31,18 +35,27 @@ Page({
       goods
     })
   },
+  // 打开转发
+  openShare: function(){
+    this.setData({
+      showShare: true
+    })
+  },
+  closeShare: function() {
+    this.setData({
+      showShare: false
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
   },
 
   /**
@@ -77,6 +90,22 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    let goods = this.data.goods, currentPage = getCurrentPages()[getCurrentPages().length - 1]
+    let path = `${currentPage.route}?id=${currentPage.options.id}`
+    this.closeShare()
+    return {
+      title: `￥${goods.price} | ${goods.name}`,
+      path,
+      imageUrl: goods.icon[0],
+      success: function(res) {
+        // console.log(res.shareTickets)
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success: function(res) {
+            console.log(res)
+          }
+        })
+      }
+    }
   }
 })

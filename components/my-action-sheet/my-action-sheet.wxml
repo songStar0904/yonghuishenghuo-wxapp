@@ -1,10 +1,10 @@
 <!--components/my-action-sheet/my-action-sheet.wxml-->
 <view class="action-sheet">
-  <view class="mask" bindtap='close' wx:if='{{showSheet}}'></view>
-  <view class="content" animation="{{animationData}}" wx:if='{{showSheet}}'>
-   <view class="sheet-heard">
+  <view class="mask {{showSheet ? 'show' : ''}}" bindtap='close'></view>
+  <view class="content" animation="{{animationData}}" hidden='{{!showSheet}}'>
+   <view class="sheet-heard" wx:if="{{heard}}">
     <text class="cancel" bindtap='close'>取消</text>
-    <text class="title">请选择城市</text>
+    <text class="title">{{title}}</text>
   </view>
     <slot></slot>
   </view>
