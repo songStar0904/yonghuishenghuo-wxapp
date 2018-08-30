@@ -40,7 +40,7 @@
   </view>
   <!-- 配送订单 -->
   <view class="card order-card">
-    <template is="title-icon-navigate" data="{{title: '配送订单', icon: '../../images/order.png', url: '/pages/order/order'}}" />
+    <template is="title-icon-navigate" data="{{title: '配送订单', icon: '../../images/order.png', type:'url', data: '/pages/order/order'}}" />
     <view class="order-flow">
       <navigator class="flow-item" url="/pages/order/order?current=1" hover-class='none'>
         <image src="../../images/no_pay.png"></image>

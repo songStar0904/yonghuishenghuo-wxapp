@@ -21,6 +21,9 @@ const formateAddress = (data) => {
   }
   return data
 }
+const formatPrice = (value) => {
+  return parseFloat(isNaN(value) ? 0 : value).toFixed(2)
+}
 // 获得位置授权
 const getUserLocation = () => {
   return new Promise(function(resolve, reject) {
@@ -154,6 +157,7 @@ const hasUserInfo = () => {
 }
 module.exports = {
   formatTime,
+  formatPrice,
   getUserLocation,
   getLocation,
   addCart,

@@ -1,8 +1,5 @@
 const tap = function(e) {
-  let dataset = e.currentTarget.dataset
-  let data = dataset.data
-  let type = dataset.type
-  console.log(dataset)
+  let {data, type} = e.currentTarget.dataset
   if (!type) {
     return
   } 

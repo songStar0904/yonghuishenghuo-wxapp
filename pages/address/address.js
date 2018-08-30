@@ -71,7 +71,7 @@ Page({
   },
   // 设置tag
   setTag: function(t) {
-    let tags = this.data.tag
+    let {tags} = this.data
     t.forEach(item => {
       let flag = false
       for (let i = 0; i < tags.length; i++) {
@@ -91,8 +91,9 @@ Page({
   },
   formSubmit: function(e) {
     let data = e.detail.value
-    if (verifiction(this.data.rules, data)) {
-      let tag = this.data.tag
+    let {rules, tag, id} = this.data
+    if (verifiction(rules, data)) {
+      let tag = tag
       data.tag = []
       tag.forEach(item => {
         item.checked && data.tag.push(item.value)
@@ -100,7 +101,7 @@ Page({
       console.log('form发生了submit事件，携带数据为：', data)
       // 此处修改添加地址
       let title
-      if (this.data.id) {
+      if (id) {
         // 修改
         title = '修改地址'
       } else {
@@ -126,7 +127,7 @@ Page({
   },
   // 选择城市
   selectCity: function(e) {
-    let address = this.data.address
+    let {address} = this.data
     address.city = e.detail.name
     this.setData({
       address,
@@ -136,8 +137,8 @@ Page({
   // 选择标签
   checkTag: function(e) {
     let checked = !e.currentTarget.dataset.checked
-    let idx = e.currentTarget.dataset.idx
-    let tag = this.data.tag
+    let {idx} = e.currentTarget.dataset
+    let {tag} = this.data
     tag[idx].checked = checked
     this.setData({
       tag
@@ -157,12 +158,11 @@ Page({
   },
   // 确认添加tag
   onModalConfirm: function() {
-    let newTag = this.data.newTag
+    let {newTag, tag} = this.data
     let length = newTag.length
     if (length <= 0) {
       this.onModalCancel()
     } else if (length <= 4) {
-      let tag = this.data.tag
       tag.push({
         value: newTag,
         checked: true

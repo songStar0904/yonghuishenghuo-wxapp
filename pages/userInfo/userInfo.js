@@ -41,7 +41,7 @@ Page({
   },
   bindDateChange: function(e) {
     // console.log(e.detail.value)
-    let userInfo = this.data.userInfo
+    let {userInfo} = this.data
     userInfo.birthday = e.detail.value
     this.setData({
       userInfo
@@ -49,7 +49,7 @@ Page({
   },
   selectSex: function(e) {
     // console.log(e.detail.value)
-    let userInfo = this.data.userInfo
+    let {userInfo} = this.data
     userInfo.sex = e.detail.value
     this.setData({
       userInfo

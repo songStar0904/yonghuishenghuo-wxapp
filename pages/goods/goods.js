@@ -1,5 +1,6 @@
 // pages/goods/goods.js
 let goodsData = require('../../libs/goodsData.js')
+let {formatPrice} = require('../../utils/util.js')
 Page({
 
   /**
@@ -28,7 +29,6 @@ Page({
       withShareTicket: true
     })
    this.getGoods()
-    this.eventDraw()
   },
   // 获得商品详情
   getGoods: function (){
@@ -66,6 +66,7 @@ Page({
       mask: true
     })
     let { goods, cardWidth, imgWidth} = this.data
+    let {icon: sellerIcon} = wx.getStorageSync('seller')
     this.setData({
       showShare: false,
       painting: {
@@ -97,7 +98,7 @@ Page({
           },
           {
             type: 'text',
-            content: `￥${goods.price}`,
+            content: `￥${formatPrice(goods.price)}`,
             textAlign: 'center',
             top: 230,
             left: cardWidth / 2,
@@ -105,9 +106,17 @@ Page({
           },
           {
             type: 'image',
+            url: sellerIcon,
+            left: (cardWidth - 75) / 2,
+            top: 260,
+            width: 75,
+            height: 20
+          },
+          {
+            type: 'image',
             url: this.data.wechat,
             left: (cardWidth - 75) / 2,
-            top: 290,
+            top: 300,
             width: 75,
             height: 75
           },
@@ -148,7 +157,6 @@ Page({
   },
   eventGetImage(event) {
     console.log(event)
-    console.log(this.data.painting)
     wx.hideLoading()
     const { tempFilePath, errMsg } = event.detail
     if (errMsg === 'canvasdrawer:ok') {
@@ -210,7 +218,7 @@ Page({
     let path = `${currentPage.route}?id=${currentPage.options.id}`
     this.closeShare()
     return {
-      title: `￥${goods.price} | ${goods.name}`,
+      title: `￥${formatPrice(goods.price)} | ${goods.name}`,
       path,
       imageUrl: goods.icon[0],
       success: function(res) {

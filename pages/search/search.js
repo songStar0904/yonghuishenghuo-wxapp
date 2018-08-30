@@ -43,8 +43,7 @@ Page({
   },
   // 获得商品
   getGoods: function() {
-    let search = this.data.search
-    let current_seller = this.data.current_seller
+    let {search, current_seller} = this.data
     // request
     wx.showLoading({
       title: '正在搜索...'
@@ -64,7 +63,7 @@ Page({
     if (!search) {
       return
     }
-    let history = this.data.history
+    let {history} = this.data
     let that = this
     for(let i in history) {
       if (history[i] == search) {
