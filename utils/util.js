@@ -1,4 +1,5 @@
 const ak = 'zcbTavuSRgQKQB9GyqZZRGYOoBht2RAP' //百度地图api-ak
+const key = '27IBZ-YFMRI-B53G2-5UKP6-VDKPK-3BFUK' //腾讯地图api-key
 const mta = require('./mta_analysis.js')
 const formatTime = date => {
   const year = date.getFullYear()
@@ -15,13 +16,7 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-const formateAddress = (data) => {
-  if (data.length > 9) {
-    data = data.substring(0, 9)
-    return `${data}...`
-  }
-  return data
-}
+
 const formatPrice = (value) => {
   return parseFloat(isNaN(value) ? 0 : value).toFixed(2)
 }
@@ -43,19 +38,20 @@ const getLocation = () => {
     })
     let that = this
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
       success: function(res) {
         mta.Event.stat("1002", {})
         let latitude = res.latitude
         let longitude = res.longitude
         console.log(res)
         wx.request({
-          url: `https://api.map.baidu.com/geocoder/v2/?ak=${ak}&location=${latitude},${longitude}&output=json`,
+          url: `http://apis.map.qq.com/ws/geocoder/v1/?key=${key}&location=${latitude},${longitude}&output=json`,
+          // url: `https://api.map.baidu.com/geocoder/v2/?ak=${ak}&location=${latitude},${longitude}&output=json`,
           success: (res) => {
             console.log(res)
-            let address = res.data.result.addressComponent
-            let data = address.district + address.street + address.street_number;
-            data = formateAddress(data)
+            // let address = res.data.result.addressComponent
+            // let data = address.district + address.street + address.street_number;
+            let data = res.data.result.formatted_addresses.recommend
             wx.hideLoading()
             getApp().globalData.address = data
             resolve(data)

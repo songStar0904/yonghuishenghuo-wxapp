@@ -1,10 +1,11 @@
 <!--pages/mall/mall.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
 <view class="container" wx:if="{{userLocation}}">
   <!-- 头部定位和搜索 -->
   <view class="mall-heard">
     <view class="heard-left">
       <image src="../../images/address_1.png" class="image"></image>
-      {{address}}</view>
+      {{filter.filterString(address, 9)}}</view>
     <view class="heard-right" bindtap="toSearch">
       <input value='{{search}}' placeholder='请输入商品名称'></input>
       <icon type="search" color="#616161" size="14" class="search-icon" />

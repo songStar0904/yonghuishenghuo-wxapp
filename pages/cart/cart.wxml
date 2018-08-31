@@ -4,7 +4,7 @@
   <!-- 地址信息 -->
   <view class="address">
     <image class="address-icon" src="../../images/address_2.png"></image>
-    <text>{{address}}</text>
+    <text>{{filter.filterString(address, 18)}}</text>
     <navigator hover-class='none' url="/pages/address/address" class="add-address">
       补全地址
       <image src="../../images/arrow_r.png"></image>

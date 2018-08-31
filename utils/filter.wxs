@@ -1,3 +1,11 @@
+var filterString = function(value, num) {
+  if (value.length > num) {
+    console.log(value.substring(0, num))
+    return value.substring(0, num) + '...'
+  } else {
+    return value
+  }
+}
 var filterPrice = function(value) {
   return parseFloat(isNaN(value) ? 0 : value).toFixed(2);
 }
@@ -25,5 +33,6 @@ module.exports = {
   filterPrice: filterPrice,
   filterTime: filterTime,
   filterDistance: filterDistance,
-  mdPhone: mdPhone
+  mdPhone: mdPhone,
+  filterString: filterString 
 }
