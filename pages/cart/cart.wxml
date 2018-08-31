@@ -60,6 +60,6 @@
   </view>
   <!-- 推荐 -->
   <view class="recommend">
-    <recommend bind:addCart="changeCart" class="recommend-box"></recommend>
+    <recommend goods="{{goods}}"bind:addCart="changeCart" class="recommend-box"></recommend>
   </view>
 </view>

@@ -1,4 +1,5 @@
 // pages/wxLogin/wxLogin.js
+const mta = require('../../utils/mta_analysis.js');
 const app = getApp()
 Page({
 
@@ -15,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    mta.Page.init()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -45,6 +47,7 @@ Page({
   getUserInfo: function (e) {
     let detail = e.detail
     if (detail.errMsg === 'getUserInfo:ok') {
+      mta.Event.stat("1000", {})
       console.log("用户允许微信授权", e)
       app.globalData.userInfo = detail.userInfo
       this.setData({
@@ -56,6 +59,8 @@ Page({
       wx.reLaunch({
         url: wx.getStorageSync('prePage') || '/pages/index/index',
       })
+    } else {
+      mta.Event.stat("1001", {})
     }
     
   },

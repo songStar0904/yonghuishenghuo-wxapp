@@ -3,7 +3,9 @@ let {
   setBadge,
   hasUserInfo
 } = require('../../utils/util.js')
+let goods = require('../../libs/goodsData.js')
 import tap from '../../template/title-icon-navigate/title-icon-navigate.js'
+const mta = require('../../utils/mta_analysis.js');
 
 Page({
 
@@ -35,7 +37,8 @@ Page({
       icon: '../../images/version.png',
       note: '永辉生活小程序 V4.17.0.3',
       no_arrow: true
-    }]
+    }],
+    goods
   },
   // 添加购物车
   changeCart: function(cart) {
@@ -52,7 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    mta.Page.init()
   },
 
   /**

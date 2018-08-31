@@ -1,4 +1,5 @@
 const ak = 'zcbTavuSRgQKQB9GyqZZRGYOoBht2RAP' //百度地图api-ak
+const mta = require('./mta_analysis.js')
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -44,7 +45,7 @@ const getLocation = () => {
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
-
+        mta.Event.stat("1002", {})
         let latitude = res.latitude
         let longitude = res.longitude
         console.log(res)
@@ -67,6 +68,7 @@ const getLocation = () => {
       },
       fail: function(res) {
         console.log(res)
+        mta.Event.stat("1003", {})
         wx.hideLoading()
         reject(res)
       }
@@ -109,6 +111,13 @@ const addCart = (item, fn) => {
     key: 'cart',
     data: cart,
     success: () => {
+      let {id, name, price} = item.goods
+      mta.Event.stat("2001", {})
+      wx.reportAnalytics('add_to_cart', {
+        goods_id: id,
+        goods_name: name,
+        goods_price: price
+      })
       fn && fn()
     }
   })

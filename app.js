@@ -1,4 +1,5 @@
 //app.js
+import mta from 'utils/mta_analysis.js';
 let {
   setBadge
 } = require('./utils/util.js')
@@ -11,7 +12,15 @@ App({
     cart: wx.getStorageSync('cart') ? wx.getStorageSync('cart') : [],
     seller: {}
   },
-  onLaunch: function () {
+  onLaunch: function() {
+    // mta  
+    mta.App.init({
+      "appID": "500637608",
+      "eventID": "500637609",
+      "statPullDownFresh": true,
+      "statShareApp": true,
+      "statReachBottom": true
+    });
     // 设置购物车badge
     setBadge()
     // 获取当前店家

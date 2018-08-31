@@ -1,5 +1,7 @@
 // pages/cart/cart.js
 let globalData = getApp().globalData
+let goods = require('../../libs/goodsData.js')
+const mta = require('../../utils/mta_analysis.js');
 let {
   getLocation,
   getUserLocation,
@@ -15,13 +17,15 @@ Page({
    */
   data: {
     address: '定位中...',
-    cart: wx.getStorageSync('cart')
+    cart: wx.getStorageSync('cart'),
+    goods
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    mta.Page.init()
     watch(this, {
       cart(newVal) {
         wx.setStorage({

@@ -2,6 +2,7 @@
 let city = require('../../libs/cityData.js')
 let addressData = require('../../libs/addressData.js')
 let verifiction = require('../../utils/verifiction.js')
+const mta = require('../../utils/mta_analysis.js');
 Page({
 
   /**
@@ -195,6 +196,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    mta.Page.init()
     options.id && this.getAddress(options.id)
   },
 

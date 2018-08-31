@@ -22,10 +22,10 @@ Component({
    */
   methods: {
     addCart: function(e) {
-      let that = this
+      let that = this, goods = e.currentTarget.dataset.item
       let cart = {
         seller: wx.getStorageSync('seller'),
-        goods: e.currentTarget.dataset.item
+        goods
       }
       cart.goods.num = 1
       cart.goods.check = true

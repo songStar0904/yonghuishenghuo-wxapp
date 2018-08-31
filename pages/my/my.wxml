@@ -64,5 +64,5 @@
     </view>
   </view>
   <!-- 推荐 -->
-  <recommend bind:addCart="changeCart"></recommend>
+  <recommend goods="{{goods}}"bind:addCart="changeCart"></recommend>
 </view>

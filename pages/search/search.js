@@ -2,6 +2,7 @@
 import getGoods from '../../utils/getGoods.js'
 let {getCartNum} = require('../../utils/util.js')
 let sellerData = require('../../libs/sellerData.js')
+const mta = require('../../utils/mta_analysis.js');
 Page({
 
   /**
@@ -123,6 +124,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    mta.Page.init()
     let cartNum = getCartNum()
     this.setData({
       cartNum

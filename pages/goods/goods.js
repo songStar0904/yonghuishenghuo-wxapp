@@ -1,6 +1,7 @@
 // pages/goods/goods.js
 let goodsData = require('../../libs/goodsData.js')
 let {formatPrice} = require('../../utils/util.js')
+const mta = require('../../utils/mta_analysis.js');
 Page({
 
   /**
@@ -22,6 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    mta.Event.stat("2000", {})
     this.setData({
       gid: this.options.id
     })

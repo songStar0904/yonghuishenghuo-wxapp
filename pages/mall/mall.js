@@ -2,6 +2,7 @@
 var globalData = getApp().globalData
 let getGoods = require('../../utils/getGoods.js')
 let sellerData = require('../../libs/sellerData.js')
+const mta = require('../../utils/mta_analysis.js');
 let {
   getLocation,
   getUserLocation,
@@ -93,7 +94,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+    mta.Page.init()
   },
   // 获得地理位置
   getLocation: function() {
