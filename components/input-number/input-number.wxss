@@ -1,0 +1,21 @@
+/* components/input-number/input-number.wxss */
+.input-number{
+  display: flex;
+  align-items: center;
+}
+.input-number>.icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+.input-number>.num{
+  font-size: 32rpx;
+  margin: 0 16rpx;
+}
+.input-number.large>.icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.input-number.large>.num{
+  font-size: 36rpx;
+  margin: 0 30rpx;
+}

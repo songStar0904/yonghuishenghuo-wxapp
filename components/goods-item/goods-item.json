@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "input-number": "/components/input-number/input-number"
+  }
 }

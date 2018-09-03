@@ -23,12 +23,12 @@
   flex-direction: column;
   justify-content: space-between;
   margin-left: 40rpx;
-  font-size: 28rpx;
+  font-size: 30rpx;
   font-weight: 300;
 }
 .item-box.small .goods-info{
   margin-left: 30rpx;
-  font-size: 25rpx;
+  font-size: 28rpx;
 }
 .item-box .goods-tab{
   width: 100rpx;
@@ -43,16 +43,18 @@
   margin-top: 5rpx;
   color: #EE7942;
 }
-.add-icon{
-  width: 40rpx;
-  height: 40rpx;
-  position: absolute;
-  right: 20rpx;
-  bottom: 40rpx;
-}
 .small .add-icon{
   width: 40rpx;
   height: 40rpx;
   right: 20rpx;
   bottom: 20rpx;
+}
+.input-number-box{
+  position: absolute;
+  right: 20rpx;
+  bottom: 40rpx;
+}
+.input-number-box>image{
+  width: 40rpx;
+  height: 40rpx;
 }

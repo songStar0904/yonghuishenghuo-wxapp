@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "badge": "../badge/badge"
+    "badge": "../badge/badge",
+    "input-number": "../input-number/input-number"
   }
 }

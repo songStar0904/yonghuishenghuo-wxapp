@@ -3,11 +3,13 @@
 .tab{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   bottom:0;
   left: 0;
   right: 0;
-  padding: 20rpx 30rpx;
+  height: 90rpx;
+  padding: 0 30rpx;
   background: #fff;
   border-top: 1rpx solid #eee;
 }
@@ -27,16 +29,4 @@
 }
 .tab .num {
   margin: 0 30rpx;
-}
-.numCheck .check{
-  width: 50rpx;
-  height: 50rpx;
-}
-.numCheck>.add{
-  background: #EE7942;
-  color: #fff;
-}
-.numCheck>.minus{
-  border: 1rpx solid #EE7942;
-  color: #EE7942;
 }

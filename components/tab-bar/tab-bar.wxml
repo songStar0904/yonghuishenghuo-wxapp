@@ -5,10 +5,6 @@
       <image class="cart-icon" src="../../images/cart_1.png"></image>
     </badge>
   </navigator>
-  <view class="tab-btn" hidden='{{cartNum > 0}}' bindtap="addCart">加入购物车</view>
-  <view class="numCheck" hidden='{{cartNum <= 0}}'>
-    <text class="check minus" bindtap='changeNum' data-type="minus">-</text>
-    <text class="num">{{cartNum}}</text>
-    <text class="check add" bindtap='changeNum' data-type="add">+</text>
-  </view>
+  <view class="tab-btn" wx:if='{{cartNum <= 0}}' bindtap="addCart">加入购物车</view>
+  <input-number i-class="input-number" size="large" value="{{cartNum}}" bindchangeNumber="changeNum" wx:else></input-number>
 </view>

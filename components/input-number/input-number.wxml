@@ -1,0 +1,6 @@
+<!--components/input-number/input-number.wxml-->
+<view class="input-number i-class {{size}}">
+  <image src="../../images/minus.png" class="icon add-icon" hidden='{{value <= 0}}' catchtap='change' data-num="{{-1}}"></image>
+  <text class="num" hidden='{{value <= 0}}'>{{value}}</text>
+  <image src="../../images/add.png" class="icon minus-icon" catchtap='change' data-num="{{1}}"></image>
+</view>

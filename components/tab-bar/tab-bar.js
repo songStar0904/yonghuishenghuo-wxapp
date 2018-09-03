@@ -66,10 +66,10 @@ Component({
     changeNum: function(e) {
       let gid = this.properties.gid
       let that = this
-      let num = e.currentTarget.dataset.type == 'add' ? 1 : -1
-      let cartNum = this.data.cartNum + num
+      let cartNum = e.detail
       let cart = wx.getStorageSync('cart') ? wx.getStorageSync('cart') : []
       let sid = this.data.seller.id
+      let num = cartNum - this.data.cartNum
       cart.forEach((item, index) => {
         if (item.seller.id === sid) {
           item.total += num

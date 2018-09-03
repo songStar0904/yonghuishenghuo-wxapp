@@ -22,20 +22,31 @@ Component({
    */
   methods: {
     addCart: function(e) {
-      let that = this, goods = e.currentTarget.dataset.item
+      let goods = e.currentTarget.dataset.item
       let cart = {
         seller: wx.getStorageSync('seller'),
         goods
       }
       cart.goods.num = 1
       cart.goods.check = true
-      addCart(cart, function() {
+      addCart(cart, () =>{
         wx.showToast({
           title: '添加成功',
         })
-        that.triggerEvent('addCart', wx.getStorageSync('cart'))
+        this.triggerEvent('addCart', wx.getStorageSync('cart'))
       })
-
+    },
+    changeNum: function(value) {
+      let {goods} = this.data
+      let cart = {
+        seller: wx.getStorageSync('seller'),
+        goods
+      }
+      cart.goods.num = value.detail
+      cart.goods.check = true
+      addCart(cart, () => {
+        this.triggerEvent('addCart', wx.getStorageSync('cart'))
+      })
     }
   }
 })

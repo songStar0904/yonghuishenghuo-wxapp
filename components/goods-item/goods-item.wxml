@@ -1,17 +1,18 @@
 <!--components/goods-item/goods-item.wxml-->
 <wxs module="filter" src="../../utils/filter.wxs"></wxs>
-<navigator url="/pages/goods/goods?id={{goods.id}}" >
-<view class="item-box bg-hover {{size}}">
-  <image src="{{goods.icon[0]}}" class="goods-icon"></image>
-  <view class="goods-info">
-    <text class="goods-name">{{goods.name}}</text>
-    <view>
-      <view class="goods-tab" wx:if="{{goods.tab_price}}">称重补差价</view>
-      <text class="goods-price">￥{{filter.filterPrice(goods.price)}}</text>
+<navigator url="/pages/goods/goods?id={{goods.id}}" hover-class='none'>
+  <view class="item-box bg-hover {{size}}">
+    <image src="{{goods.icon[0]}}" class="goods-icon"></image>
+    <view class="goods-info">
+      <text class="goods-name">{{goods.name}}</text>
+      <view>
+        <view class="goods-tab" wx:if="{{goods.tab_price}}">称重补差价</view>
+        <text class="goods-price">￥{{filter.filterPrice(goods.price)}}</text>
+      </view>
     </view>
+    <view class="input-number-box">
+      <image src="../../images/add.png" catchtap='addCart' data-item="{{goods}}"></image>
+    </view>
+    <!-- <input-number i-class="input-number-box" bindchangeNumber="changeNum" value="{{value}}"></input-number> -->
   </view>
-  <view>
-    <image src="../../images/add.png" class="add-icon" catchtap='addCart' data-item="{{goods}}"></image>
-  </view>
-</view>
 </navigator>

@@ -4,7 +4,7 @@ const goodsData = [{
   title: '18头鲍鱼*4+黄贝*2',
   price: 9.90,
   icon: ['../../images/goods/goods_1_1.jpg', '../../images/goods/goods_1_2.jpg'],
-  tab_price: true,
+  tab_price: false,
   detail: {
     place: '见包装',
     size: '包装',
@@ -17,7 +17,7 @@ const goodsData = [{
     title: '乐视乐视乐事薯片',
     price: 5.00,
     icon: ['../../images/goods/goods_2_1.jpg', '../../images/goods/goods_2_2.jpg', '../../images/goods/goods_2_3.jpg'],
-    tab_price: false,
+    tab_price: true,
     detail: {
       place: '见包装',
       size: '包装',
