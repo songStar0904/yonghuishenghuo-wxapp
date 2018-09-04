@@ -1,6 +1,7 @@
 // pages/mall/mall.js
 var globalData = getApp().globalData
 let getGoods = require('../../utils/getGoods.js')
+let breed = require('../../libs/breedData.js')
 let sellerData = require('../../libs/sellerData.js')
 const mta = require('../../utils/mta_analysis.js');
 let {
@@ -19,75 +20,7 @@ Page({
     current_seller: wx.getStorageSync('seller'),
     current_breed_list: undefined,
     current_breed: {},
-    breed: [{
-      sid: 1,
-      list: [{
-        id: 1,
-        name: '推荐'
-      }, {
-        id: 2,
-        name: '猜你喜欢',
-        new: true
-      }, {
-        id: 3,
-        name: '热销爆款'
-      }, {
-        id: 4,
-        name: '品质定制'
-      }, {
-        id: 5,
-        name: '环球美食'
-      }, {
-        id: 6,
-        name: '缤纷美食'
-      }, {
-        id: 7,
-        name: '热销爆款'
-      }, {
-        id: 8,
-        name: '品质定制'
-      }, {
-        id: 9,
-        name: '环球美食'
-      }, {
-        id: 10,
-        name: '缤纷美食'
-      }]
-    }, {
-      sid: 2,
-      list: [{
-        id: 1,
-        name: '推荐'
-      }, {
-        id: 2,
-        name: '猜你喜欢'
-      }, {
-        id: 3,
-        name: '热销爆款'
-      }, {
-        id: 4,
-        name: '品质定制',
-        new: true
-      }, {
-        id: 5,
-        name: '鱼类肉类'
-      }, {
-        id: 6,
-        name: '优良干货'
-      }, {
-        id: 7,
-        name: '中外名酒'
-      }, {
-        id: 8,
-        name: '品质定制'
-      }, {
-        id: 9,
-        name: '环球美食'
-      }, {
-        id: 10,
-        name: '缤纷美食'
-      }]
-    }],
+    breed,
     goods: []
   },
   /**
@@ -98,37 +31,49 @@ Page({
   },
   // 获得地理位置
   getLocation: function() {
-    let that = this
-    getUserLocation().then((userLocation) => {
-      getLocation().then(address => {
-        that.setData({
-          address,
-          userLocation: true
-        })
-        // 设置选择的商家
-        if (wx.getStorageSync('seller') == '') {
-          wx.setStorage({
-            key: 'seller',
-            data: this.data.seller[0],
-            success: (res) => {
-              that.setData({
-                current_seller: wx.getStorageSync('seller')
-              })
-              this.changeBreed()
-            }
-          })
-        } else {
+    if (globalData.address) {
+      this.setAddress(globalData.address)
+      this.setSeller()
+    } else {
+      let that = this
+      getUserLocation().then((userLocation) => {
+        getLocation().then(address => {
+          this.setAddress(address)
+          this.setSeller()
+        }).catch(res => {
           that.setData({
+            userLocation: false
+          })
+        })
+      })
+    }
+  },
+  // 设置地理位置
+  setAddress: function(address) {
+    this.setData({
+      address,
+      userLocation: true
+    })
+  },
+  // 设置选择的商家
+  setSeller: function() {
+    if (wx.getStorageSync('seller') == '') {
+      wx.setStorage({
+        key: 'seller',
+        data: this.data.seller[0],
+        success: (res) => {
+          this.setData({
             current_seller: wx.getStorageSync('seller')
           })
           this.changeBreed()
         }
-      }).catch(res => {
-        that.setData({
-          userLocation: false
-        })
       })
-    })
+    } else {
+      this.setData({
+        current_seller: wx.getStorageSync('seller')
+      })
+      this.changeBreed()
+    }
   },
   // 跳转搜索
   toSearch: function() {

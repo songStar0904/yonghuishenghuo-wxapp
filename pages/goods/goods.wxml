@@ -68,7 +68,7 @@
   </view>
 </my-action-sheet>
 <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="eventGetImage" />
-<view class="share-card-box" hidden='{{!showCard}}'>
+<view class="share-card-box" hidden='{{!showCard}}' catchtouchmove="ture">
   <view class="content">
     <image src="{{shareImage}}" class="share-image"></image>
     <view class="btn-group">
